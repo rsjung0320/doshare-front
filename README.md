@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/rsjung0320/doshare-front.svg?branch=master)](https://travis-ci.org/rsjung0320/doshare-front)
+
 # app
 
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
