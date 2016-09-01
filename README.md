@@ -67,7 +67,7 @@ Run `grunt` for building and `grunt serve` for preview.
 
 ## Testing
 
-preinstall
+Preinstall
 `npm install karma grunt-karma karma-phantomjs-launcher karma-jasmine jasmine-core --save-dev`
 
 Running `grunt test` will run the unit tests with karma.
