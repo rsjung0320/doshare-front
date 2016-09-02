@@ -1,5 +1,7 @@
 'use strict';
 
+// https://docs.angularjs.org/api/ngRoute/provider/$routeProvider
+
 /**
  * @ngdoc overview
  * @name appApp
