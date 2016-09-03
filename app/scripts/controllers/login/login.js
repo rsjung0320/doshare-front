@@ -26,29 +26,7 @@ angular.module('appApp')
       }
 
       // 3. response의 결과값을 받아온다.
-      // 3-1. susscess 시 path를 /로 이동시켜준다. 토큰 혹은 다른 것을 포함하여 보낸다.
 
-
-      // var url = "http://localhost:8080/login";
-      // $http({
-      //     method: 'JSONP',
-      //     url: url
-      // }).
-      // success(function(status) {
-      //     //your code when success
-      //     console.log("success");
-      //
-      // }).
-      // error(function(status) {
-      //     //your code when fails
-      //     console.log("error : ",  status);
-      //     $scope.content = status.data;
-      //     console.log("error : ",  $scope.content);
-      //     $scope.statuscode = status.status;
-      //     console.log("error : ",  $scope.statuscode);
-      //     $scope.statustext = status.statustext;
-      //     console.log("error : ",  $scope.statustext);
-      // });
 
       $http({
           url: "http://localhost:8080/login",
@@ -56,8 +34,9 @@ angular.module('appApp')
         })
         .success(function(response) {
           alert(response);
-          console.log("test!!!");
-          console.log("response : " + response);
+          // 3-1. susscess 시 path를 /로 이동시켜준다. 
+          // 토큰 혹은 다른 것을 포함하여 보낸다.
+          $location.path('/');
         }).error(function(response){
             console.log("error!!");
         });
