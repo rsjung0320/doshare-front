@@ -6,19 +6,19 @@
           <h3 class="panel-title">Login via site</h3>
         </div>
         <div class="panel-body">
-          <form accept-charset="UTF-8" role="form">
+          <form accept-charset="UTF-8" role="form" name="form" ng-submit="submit()" novalidate>
             <fieldset>
-              <div class="input-group margin-bottom-sm">
+              <div class="input-group margin-bottom-sm" ng-class="{'has-error' : form.email.$invalid && !form.email.$pristine}">
                 <span class="input-group-addon">
                   <i class="fa fa-envelope-o fa-fw"></i>
                 </span>
-                <input class="form-control" type="text" placeholder="Email address" required="true" autofocus="true">
+                <input class="form-control" type="text" placeholder="Email address" required autofocus ng-model="user.email">
               </div>
-              <div class="input-group">
+              <div class="input-group" ng-class="{'has-error' : form.password.$invalid && !form.password.$pristine}">
                 <span class="input-group-addon">
                   <i class="fa fa-key fa-fw"></i>
                 </span>
-                <input class="form-control" type="password" placeholder="Password"  required="true">
+                <input class="form-control" type="password" placeholder="Password" required ng-model="user.password">
               </div>
 
               <div class="checkbox">
@@ -27,7 +27,7 @@
                   Remember Me
                 </label>
               </div>
-              <input class="btn btn-lg btn-success btn-block" ng-click="submit()" value="Login">
+              <input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
             </fieldset>
           </form>
           <hr/>
