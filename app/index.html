@@ -10,66 +10,95 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <!-- endbower -->
-    <link rel="stylesheet" href="styles/bootswatch-flatly.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css"/>
+    <link rel="stylesheet" href="styles/bootswatch-flatly.css"/>
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
+    <!-- <link rel="stylesheet" href="styles/main.css"> -->
+    <link rel="stylesheet" href="styles/clean-blog.css">
     <link rel="stylesheet" href="styles/login.css">
     <!-- endbuild -->
   </head>
   <body ng-app="appApp">
-    <!--[if lte IE 8]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+    <!--[if lte IE 8]> <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p> <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="header">
-        <nav class="navbar navbar-default navbar-fixed-top">
-          <div class="container">
-              <!-- Brand and toggle get grouped for better mobile display -->
-              <div class="navbar-header page-scroll">
-                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                      <span class="sr-only">Toggle navigation</span>
-                      Menu <i class="fa fa-bars"></i>
-                  </button>
-                  <a class="navbar-brand" href="index.html">Do Share!</a>
-              </div>
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            Menu
+            <i class="fa fa-bars"></i>
+          </button>
+          <a class="navbar-brand" href="index.html">Do Share</a>
+        </div>
 
-              <!-- Collect the nav links, forms, and other content for toggling -->
-              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                  <ul class="nav navbar-nav navbar-right">
-                      <li><a ng-href="#/main">공장</a></li>
-                      <li><a ng-href="#/about">세미나</a></li>
-                      <li><a href="#/login">Log In</a></li>
-                  </ul>
-              </div>
-              <!-- /.navbar-collapse -->
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a ng-href="#/main">공장</a>
+            </li>
+            <li>
+              <a ng-href="#/about">세미나</a>
+            </li>
+            <li>
+              <a ng-href="#/login">Log In</a>
+            </li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('images/home-bg.jpg')">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="site-heading">
+              <!-- <h1>Clean Blog</h1>
+              <hr class="small">
+              <span class="subheading">In Nable Communications</span> -->
+            </div>
           </div>
-          <!-- /.container -->
-      </nav>
-    </div>
+        </div>
+      </div>
+    </header>
 
     <div class="container">
-    <div ng-view=""></div>
+      <div ng-view=""></div>
     </div>
 
     <div class="footer">
       <div class="container text-center">
         <hr>
-        <p><i class="fa fa-thumbs-up" aria-hidden="true"></i> Made by RaeSung Jung</p>
+        <p>
+          <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+          Made by RaeSung Jung</p>
       </div>
     </div>
 
-
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    <script>
+      !function(A, n, g, u, l, a, r) {
+        A.GoogleAnalyticsObject = l,
+        A[l] = A[l] || function() {
+          (A[l].q = A[l].q || []).push(arguments)
+        },
+        A[l].l =+ new Date,
+        a = n.createElement(g),
+        r = n.getElementsByTagName(g)[0],
+        a.src = u,
+        r.parentNode.insertBefore(a, r)
+      }(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
+      ga('create', 'UA-XXXXX-X');
+      ga('send', 'pageview');
     </script>
 
     <!-- build:js(.) scripts/vendor.js -->
@@ -86,11 +115,11 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main/main.js"></script>
-        <script src="scripts/controllers/about/about.js"></script>
-        <script src="scripts/controllers/login/login.js"></script>
-        <!-- endbuild -->
-</body>
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main/main.js"></script>
+    <script src="scripts/controllers/about/about.js"></script>
+    <script src="scripts/controllers/login/login.js"></script>
+    <!-- endbuild -->
+  </body>
 </html>
