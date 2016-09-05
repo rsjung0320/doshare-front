@@ -8,7 +8,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
     <!-- endbower -->
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css"/>
     <link rel="stylesheet" href="styles/bootswatch-flatly.css"/>
@@ -80,6 +80,7 @@
         <p>
           <i class="fa fa-thumbs-up" aria-hidden="true"></i>
           Made by RaeSung Jung</p>
+        <div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div>
       </div>
     </div>
 
@@ -99,6 +100,25 @@
 
       ga('create', 'UA-XXXXX-X');
       ga('send', 'pageview');
+    </script>
+
+    <!-- Facebook SDK for JavaScript -->
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({appId: '543517282525567', xfbml: true, version: 'v2.7'});
+      };
+
+      (function(d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+          return;
+        }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
     </script>
 
     <!-- build:js(.) scripts/vendor.js -->
