@@ -34,7 +34,7 @@ angular.module('appApp')
         })
         .success(function(response) {
           alert(response);
-          // 3-1. susscess 시 path를 /로 이동시켜준다. 
+          // 3-1. susscess 시 path를 /로 이동시켜준다.
           // 토큰 혹은 다른 것을 포함하여 보낸다.
           $location.path('/');
         }).error(function(response){
