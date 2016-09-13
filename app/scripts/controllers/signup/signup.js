@@ -38,7 +38,7 @@ angular.module('appApp')
           // console.log(  $http.defaults.headers.common );
           // 3-1. susscess 시 path를 /로 이동시켜준다.
           // 토큰 혹은 다른 것을 포함하여 보낸다.
-          $location.path('/');
+          $location.path('/login');
         }).error(function(response) {
           console.log("error!!");
           console.log(response);
