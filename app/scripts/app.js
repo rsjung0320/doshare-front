@@ -29,17 +29,23 @@ angular
       .when('/about', {
         templateUrl: 'views/about/about.html',
         controller: 'AboutCtrl',
-        controllerAs: 'about/about'
+        controllerAs: 'about/about',
+        authenticated: true
       })
       .when('/login', {
         templateUrl: 'views/login/login.html',
         controller: 'LoginCtrl',
         controllerAs: 'login/login'
       })
+      .when('/signup', {
+        templateUrl: 'views/signup/signup.html',
+        controller: 'SignupCtrl',
+        controllerAs: 'signup/signup'
+      })
       .otherwise({
         redirectTo: '/'
       });
       $httpProvider.defaults.useXDomain = true;
-      $httpProvider.defaults.headers.common = 'Content-Type: application/json';
+      $httpProvider.defaults.headers.common = 'Content-Type: application/json; charset=utf-8';
       delete $httpProvider.defaults.headers.common['X-Requested-With'];
   });
