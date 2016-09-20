@@ -1,13 +1,14 @@
+<h4>use ngModel to synchronize the value</h4>
+  <div class="example">
+    <summernote height="300" ng-model="text" on-change="change(contents)"
+                on-image-upload="imageUpload(files)"
+                editable="editable" editor="editor"></summernote>
 
+    <br>
+    <!-- <textarea type="text" ng-model="text" style="width:100%;"></textarea><br>
+    text : {{text}} -->
+  </div>
 
-<!--
-  Below we include the Login Button social plugin. This button uses
-  the JavaScript SDK to present a graphical Login button that triggers
-  the FB.login() function when clicked.
--->
-
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
-test
-<div id="status">
-</div>
+<div ng-bind-html="divHtmlVar"></div>
+<input type="file" id="filetd">
+<input type="button" name="업로드" ng-click="uploadBoard()">
