@@ -1,3 +1,8 @@
+
+.login {
+    margin-top: 100px;
+}
+
 .white {
   color: #000;
   background-color: #fff;
@@ -22,6 +27,7 @@
 }
 
 .btn-signup:hover, .btn-signup:focus, .btn-signup:active, .btn-signup.active, .btn-signup.disabled, .btn-signup[disabled] {
+
   color: #ffffff;
   background-color: #133783 !important;
   *background-color: #102e6d !important;

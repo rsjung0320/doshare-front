@@ -50,4 +50,16 @@ angular
       $httpProvider.defaults.useXDomain = true;
       $httpProvider.defaults.headers.common = 'Content-Type: application/json; charset=utf-8';
       delete $httpProvider.defaults.headers.common['X-Requested-With'];
+  })
+  .controller('IndexCtrl', function($scope, $http, $location, $rootScope) {
+
+
+      // $rootScope.$on("$locationChangeStart", function(event, next, current) {
+      $rootScope.$on('$locationChangeStart', function() {
+         $scope.currentPath = $location.path();
+      });
+      $scope.init = function(){
+      };
+      $scope.init();
+
   });

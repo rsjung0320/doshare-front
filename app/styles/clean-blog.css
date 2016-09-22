@@ -3,6 +3,7 @@
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
+
 .intro-header {
   background-color: #777777;
   background: no-repeat center center;
@@ -12,7 +13,7 @@
   background-size: cover;
   -o-background-size: cover;
   margin-top: 60px;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
 }
 .intro-header .site-heading,
 .intro-header .post-heading,

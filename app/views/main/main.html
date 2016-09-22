@@ -1,23 +1,84 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+<div class="left-panel" ng-repeat="board in boards">
+  <div class="col-xs-12 col-sm-6 col-lg-4">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="col-md-12">
+          <div class="thumbnail">
+            <a href="#"><img src="http://www.istanbluegayrimenkul.com/wp-content/uploads/2014/05/image6.jpg" alt=""/></a>
+          </div>
+          <div class="icerik-bilgi">
+            <a href="#">
+              <h2>{{board.title}}</h2>
+            </a>
+            <p>{{board.content}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
+<div ng-hide="currentPath === '/'"> test ascascascascasc</div>
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+<!-- <div class="left-panel">
+  <div class="col-xs-12 col-sm-6 col-lg-4">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="col-md-12">
+          <div class="thumbnail">
+            <a href="#"><img src="http://www.istanbluegayrimenkul.com/wp-content/uploads/2014/05/image6.jpg" alt=""/></a>
+          </div>
+          <div class="icerik-bilgi">
+            <a href="#">
+              <h2>Lorem ipsum dolor sit amet</h2>
+            </a>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut condimentum eget nunc quis semper. Nunc pellentesque nec libero sed viverra. Donec turpis velit, suscipit sit amet mauris quis, viverra ornare massa. Morbi tellus eros, fringilla eu
+              sodales id, ultricies ut sapien. Duis et tristique enim, vitae mattis neque. Aliquam efficitur, dui id laoreet blandit, lorem […]</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+<div class="left-panel">
+  <div class="col-xs-12 col-sm-6 col-lg-4">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="col-md-12">
+          <div class="thumbnail">
+            <a href="#"><img src="http://www.istanbluegayrimenkul.com/wp-content/uploads/2014/05/image6.jpg" alt=""/></a>
+          </div>
+          <div class="icerik-bilgi">
+            <a href="#">
+              <h2>Lorem ipsum dolor sit amet</h2>
+            </a>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut condimentum eget nunc quis semper. Nunc pellentesque nec libero sed viverra. Donec turpis velit, suscipit sit amet mauris quis, viverra ornare massa. Morbi tellus eros, fringilla eu
+              sodales id, ultricies ut sapien. Duis et tristique enim, vitae mattis neque. Aliquam efficitur, dui id laoreet blandit, lorem […]</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="left-panel">
+  <div class="col-xs-12 col-sm-6 col-lg-4">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="col-md-12">
+          <div class="thumbnail">
+            <a href="#"><img src="http://www.istanbluegayrimenkul.com/wp-content/uploads/2014/05/image6.jpg" alt=""/></a>
+          </div>
+          <div class="icerik-bilgi">
+            <a href="#">
+              <h2>Lorem ipsum dolor sit amet</h2>
+            </a>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut condimentum eget nunc quis semper. Nunc pellentesque nec libero sed viverra. Donec turpis velit, suscipit sit amet mauris quis, viverra ornare massa. Morbi tellus eros, fringilla eu
+              sodales id, ultricies ut sapien. Duis et tristique enim, vitae mattis neque. Aliquam efficitur, dui id laoreet blandit, lorem […]</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
