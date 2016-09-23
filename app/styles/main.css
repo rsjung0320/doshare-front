@@ -1,11 +1,37 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
+.mainpage {
+  background-color: #eaf1f1;
+  /*padding-left : 100px;
+  padding-right : 100px;*/
+}
+
+@media (min-width: 768px) {
+  .mainpage {
+    padding-left : 50px;
+    padding-right : 50px;
+  }
+}
+
+@media (min-width: 992px) {
+  .mainpage {
+    padding-left : 80px;
+    padding-right : 80px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .mainpage {
+    padding-left : 150px;
+    padding-right : 150px;
+  }
+}
 /* PANEL */
 .left-panel .panel-default{border-bottom-left-radius:7px; border-bottom-right-radius:7px; border-bottom:2px #DDD solid;}
 .left-panel .panel-default .panel-body {padding:0; margin:0;}
 .left-panel .panel-default .panel-body .col-md-12{margin:0; padding:0;}
 .left-panel .panel-default .panel-body .thumbnail{border:none; margin:0; padding:0; position:relative;}
-.left-panel .panel:hover img {opacity:.8;}
+.left-panel .panel:hover img {opacity:.3;}
 .left-panel .panel-default .panel-body .icerik-bilgi{margin:30px;}
 .icerik-bilgi .btn-primary{float:right; margin-bottom:30px;}
 .icerik-bilgi h2{margin-bottom:30px; color:#333;}

@@ -52,7 +52,7 @@ angular.module('appApp')
             url: "http://localhost:8080/api/v1/board/upload/board",
             method: "POST",
             data: {
-              title : "세상의 끝에서",
+              title : $scope.title,
               // 이러한 정보는 캐쉬 혹은 메모리에서 가지고 있도록 한다.
               email : "rsjung@nablecomm.com",
               uploadDate : new Date(),

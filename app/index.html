@@ -21,6 +21,7 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/about.css">
     <link rel="stylesheet" href="styles/clean-blog.css">
     <link rel="stylesheet" href="styles/login.css">
     <!-- endbuild -->
@@ -28,7 +29,7 @@
   <body ng-app="appApp">
     <!--[if lte IE 8]> <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p> <![endif]-->
 
-    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top transparent affix">
       <div class="container">
         <div class="navbar-header page-scroll">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -37,7 +38,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">Do Share</a>
+          <a class="navbar-brand page-scroll" href="#/main">Do Share</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -59,14 +60,15 @@
     <div ng-controller="IndexCtrl" ng-hide="currentPath !== '/'">
       <!-- Page Header -->
       <!-- Set your background image for this header on the line below. -->
-      <header class="intro-header" style="background-image: url('images/home-bg.jpg')">
+      <header class="intro-header" style="background-image: url('images/home-bg9.jpg')">
         <div class="container">
           <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
               <div class="site-heading">
-                <!-- <h1>Clean Blog</h1>
-                <hr class="small">
-                <span class="subheading">In Nable Communications</span> -->
+                <h1 id="maintitle">Come And See<br/><h3 id="maintitle">For World Wide People</h3></h1>
+                <!-- <hr class="small"> -->
+                <br/>
+                <!-- <span class="subheading" id="maintitle">WHAT DO YOU THINK?</span> -->
               </div>
             </div>
           </div>
@@ -74,7 +76,7 @@
       </header>
     </div>
 
-    <div class="container">
+    <div class="container main-content-view">
       <div ng-view=""></div>
     </div>
 

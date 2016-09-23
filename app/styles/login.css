@@ -1,7 +1,26 @@
 
-.login {
-    margin-top: 100px;
+
+@media (max-width: 768px) {
+  .login {
+      margin-top: 60px;
+      margin-bottom: 60px;
+  }
 }
+
+@media (min-width: 768px) and (max-width: 1199px)  {
+  .login {
+      margin-top: 100px;
+      margin-bottom: 100px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .login {
+      margin-top: 150px;
+      margin-bottom: 150px;
+  }
+}
+
 
 .white {
   color: #000;
