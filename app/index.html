@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="styles/about.css">
     <link rel="stylesheet" href="styles/clean-blog.css">
     <link rel="stylesheet" href="styles/login.css">
+    <link rel="stylesheet" href="styles/board-list.css">
     <!-- endbuild -->
   </head>
   <body ng-app="appApp">
@@ -44,13 +45,16 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <a ng-href="#/main">공장</a>
+              <a ng-href="#/main">FACTORY</a>
             </li>
             <li>
-              <a ng-href="#/about">세미나</a>
+              <a ng-href="#/board/boardlist">BOARD</a>
             </li>
             <li>
-              <a ng-href="#/login">Log In</a>
+              <a ng-href="#/about">SEMINAR</a>
+            </li>
+            <li>
+              <a ng-href="#/login">LOG IN</a>
             </li>
           </ul>
         </div>
@@ -130,6 +134,8 @@
     <script src="scripts/controllers/about/about.js"></script>
     <script src="scripts/controllers/login/login.js"></script>
     <script src="scripts/controllers/signup/signup.js"></script>
+    <script src="scripts/controllers/board/boardlist.js"></script>
+    <script src="scripts/controllers/board/board.js"></script>
     <!-- endbuild -->
   </body>
 </html>

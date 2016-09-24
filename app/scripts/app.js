@@ -44,6 +44,16 @@ angular
         controller: 'SignupCtrl',
         controllerAs: 'signup/signup'
       })
+      .when('/board/boardlist', {
+        templateUrl: 'views/board/boardlist.html',
+        controller: 'BoardlistCtrl',
+        controllerAs: 'board/boardlist'
+      })
+      .when('/board', {
+        templateUrl: 'views/board/board.html',
+        controller: 'BoardCtrl',
+        controllerAs: 'board/board'
+      })
       .otherwise({
         redirectTo: '/'
       });
