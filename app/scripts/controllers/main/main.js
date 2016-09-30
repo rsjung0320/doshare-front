@@ -13,7 +13,7 @@ angular.module('appApp')
     $scope.init = function(){
       console.log("MainCtrl init");
       $http({
-          url: "http://localhost:8080/api/v1/board/all",
+          url: API.getTeam,
           method: "GET"
         })
         .success(function(boards) {

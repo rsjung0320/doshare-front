@@ -52,7 +52,7 @@
 .main-content-view {
   /*font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
   /*background-color: #eaf1f1;*/
-  padding-top: 40px;
+  /*padding-top: 40px;*/
 }
 
 html {
@@ -61,6 +61,9 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 body {
+  font-family: 'Lora', 'Times New Roman', serif;
+  font-size: 30px;
+  color: #333333;
   margin: 0;
 }
 article,
@@ -4568,18 +4571,18 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   padding-right: 180px;
 }*/
 .navbar-default .navbar-brand {
-  color: #ffffff;
+  color: #000000;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-  color: #18bc9c;
+  color: #000000;
   background-color: transparent;
 }
 .navbar-default .navbar-text {
-  color: #ffffff;
+  color: #000000;
 }
 .navbar-default .navbar-nav > li > a {
-  color: #ffffff;
+  color: #000000;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
@@ -4606,7 +4609,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   background-color: #1a242f;
 }
 .navbar-default .navbar-toggle .icon-bar {
-  background-color: #ffffff;
+  background-color: #000000;
 }
 .navbar-default .navbar-collapse,
 .navbar-default .navbar-form {

@@ -8,24 +8,39 @@
  * Controller of the appApp
  */
 angular.module('appApp')
-  .controller('AboutCtrl', function($scope, $http, $httpParamSerializerJQLike) {
+  .controller('AboutCtrl', function($scope, $http, $httpParamSerializerJQLike, $location) {
 
     $scope.content = "";
 
+    $('#summernote').summernote({
+      height : 350,
+      onImageUpload : function(files, editor, welEditable) {
+        console.log('onImageUpload : ', files[0]);
+          // sendFile(files[0], editor, welEditable);
+      }
+    });
+
     // console.log('Summernote is launched');
-    $scope.init = function() {}
+    $scope.init = function() {
+
+    }();
 
     $scope.change = function(contents) {
       $scope.content = contents;
       // console.log('contents are changed:', contents, $scope.editable);
     };
     $scope.imageUpload = function(files) {
+      task_imageUpload(files);
+    }
+
+    function task_imageUpload(files){
       // 파일을 업로드 한다.
       // to-do 4mb 제한을 둔다.
       var formdata = new FormData();
       formdata.append("file", files[0]);
+      console.log('file :', files[0]);
       $http({
-          url: "http://localhost:8080/api/v1/board/upload/image",
+          url: API.postUploadImage,
           method: "POST",
           data: formdata,
           headers: {
@@ -36,7 +51,7 @@ angular.module('appApp')
         .success(function(name) {
           console.log(name);
           if (name !== "") {
-            var path = "http://localhost:8080/api/v1/board/download/" + name;
+            var path = API.getDownloadImage + name;
             $scope.editor.summernote('editor.insertImage', path, name);
           }
         }).error(function(error) {
@@ -45,11 +60,15 @@ angular.module('appApp')
     }
 
     $scope.uploadBoard = function() {
+      task_uploadBoard();
+    }
+
+    function task_uploadBoard() {
       console.log("uploadBoard : ", $scope.content);
 
       if($scope.content !== ""){
         $http({
-            url: "http://localhost:8080/api/v1/board/upload/board",
+            url: API.postUploadBoard,
             method: "POST",
             data: {
               title : $scope.title,
@@ -60,6 +79,7 @@ angular.module('appApp')
             }
           })
           .success(function(name) {
+            $location.path('/board/boardlist');
             console.log(name);
           }).error(function(error) {
             console.log("error : ", error);
@@ -67,6 +87,5 @@ angular.module('appApp')
       } else {
         // 경고창 혹은 빨간 글씨로 noti 해주기
       }
-
     }
   });

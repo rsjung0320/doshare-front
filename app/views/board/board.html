@@ -1,1 +1,80 @@
-<p>This is the board/board view.</p>
+<!-- Post Content -->
+<article class="board">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 con_view">
+        <h2 class="post-title">
+          {{title}}
+        </h2>
+        <h6>
+          <i class="fa fa-clock-o" aria-hidden="true">
+            {{uploadDate | date:'yyyy-MM-dd'}}</i>
+          &nbsp;&nbsp;&nbsp;
+          <i class="fa fa-eye" aria-hidden="true">
+            {{readCount}}</i>
+          &nbsp;&nbsp;&nbsp;
+          <i class="fa fa-user" aria-hidden="true">
+            {{email}}</i>
+
+          <br/>
+          <br/>
+          <!-- to-do 본인일 때만 하도록 한다. email로 체크해도 된다.-->
+          <button class="btn btn-info btn-xs" ng-click="edit()" ng-hide="!hidden">edit</button>
+          <button class="btn btn-success btn-xs" ng-click="save()" ng-hide="hidden">save</button>
+        </h6>
+        <hr>
+        <span ng-hide="!hidden">
+          <element ng-bind-html="content"></element>
+        </span>
+        <span ng-hide="hidden">
+          <summernote ng-hide="hidden" height="400" ng-model="text" on-change="change(contents)" on-image-upload="imageUpload(files)" editable="editable" editor="editor"></summernote>
+        </span>
+        <p>Placeholder text by
+          <!-- <a href="http://spaceipsum.com/">Space Ipsum</a>.-->
+          {{email}}
+        </p>
+        <hr/>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          Comment
+          <div class="widget-area no-padding blank">
+            <div class="status-upload">
+              <form name="form" id="commentForm">
+                <textarea placeholder="Add Comment" ng-model="commentContent"></textarea>
+                <button class="btn btn-success green" ng-click="commentShare(form)">
+                  <i class="fa fa-share"></i>
+                  Share</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <div class="panel panel-white post">
+            <div class="post-footer">
+              <ul class="comments-list">
+                <li class="comment" ng-repeat="comment in comments | orderBy: 'uploadDate':true ">
+                  <a class="pull-left" href="#">
+                    <img class="avatar" src="http://bootdey.com/img/Content/user_3.jpg" alt="avatar">
+                  </a>
+                  <div class="comment-body">
+                    <div class="comment-heading">
+                      <h4 class="user">{{comment.email}}</h4>
+                      <h5 class="time">{{comment.uploadDate | date:'yyyy-MM-dd HH:mm:ss'}}</h5>
+                    </div>
+                    <p>{{comment.content}}</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</article>

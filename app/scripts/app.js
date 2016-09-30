@@ -18,7 +18,6 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'summernote',
     'ngSanitize'
   ])
   .config(function($routeProvider, $httpProvider) {
@@ -49,7 +48,7 @@ angular
         controller: 'BoardlistCtrl',
         controllerAs: 'board/boardlist'
       })
-      .when('/board', {
+      .when('/board/:idx', {
         templateUrl: 'views/board/board.html',
         controller: 'BoardCtrl',
         controllerAs: 'board/board'
@@ -68,7 +67,7 @@ angular
     $rootScope.$on('$locationChangeStart', function() {
       $scope.currentPath = $location.path();
       if($scope.currentPath !== '/') {
-        $('.navbar-default').css('background-color', '#2c3e50');
+        $('.navbar-default').css('background-color', '#FFFFFF');
       }else{
         $('.navbar-default').css('background-color', 'rgba(255, 255, 255, .0 )');
       }
@@ -82,7 +81,7 @@ angular
   		var scroll = $(window).scrollTop();
       if($scope.currentPath === '/') {
         if (scroll >= 100) {
-    		  $('.navbar-default').css('background-color', '#2c3e50');
+    		  $('.navbar-default').css('background-color', '#FFFFFF');
     		} else {
           // var ctx = document.getElementById('canvas').getContext('2d');
           // ctx.fillStyle = "rgba(255, 255, 255, .0 )";

@@ -1,0 +1,244 @@
+.board{
+  padding-top: 40px;
+}
+
+
+ .con_view{font-size:17px;font-family: Avenir,'Lato',"애플 SD 산돌고딕 Neo","Apple SD Gothic Neo","나눔바른고딕",NanumBarunGothic,"나눔고딕",NanumGothic,"맑은 고딕","Malgun Gothic","돋움",dotum,AppleGothic,sans-serif;color:#555;line-height:20px}
+ .con_view b{color:#f00;border:1px solid #e8e8e8;padding:0 5px;background:#f9f9f9;font-weight:normal}
+ .con_view p{padding-bottom:15px}
+ .con_view p span.caption{display:block;font-size:13px;color:#777;text-align:center;line-height:15px;font-weight:normal}
+ .con_view p b{font-weight:normal}
+ .con_view img{max-width:100%;height:auto;padding:0;display:block;margin:0 auto}
+ .con_view iframe[src]{display:block;margin:0 auto;margin-bottom:20px !important}
+ .con_view a[href]{word-break:break-word;color:#1cba8c;text-decoration:none}
+ .con_view a[href]:hover{color:#0e9d8f}
+ .con_view h1{font-size:28px;color:#434a53;padding-top:10px;padding-bottom:20px}
+ .con_view h2{font-size:26px;color:#434a53;padding-top:10px;padding-bottom:20px}
+ .con_view h3{font-size:23px;color:#434a53;padding-top:10px;padding-bottom:20px}
+ .con_view h4{font-size:20px;color:#434a53;padding-top:10px;padding-bottom:20px}
+ .con_view h5{font-size:17px;color:#434a53;padding-top:10px;padding-bottom:15px}
+ .con_view blockquote{font-size:20px;color:#666;border-left:7px solid #f0f0f0;padding-left:25px;margin:0 0 50px 0}
+
+ .con_view table{border-top:1px solid #ccc;width:100%;font-size:15px;border-collapse:collapse;color:#000;margin-bottom:50px}
+ .con_view th{height:35px;border-bottom:1px solid #ccc;line-height:20px;padding:10px 5px}
+ .con_view tr{border-bottom:1px solid #e8e8e8}
+ .con_view td{padding:8px 4px 8px;color:#555;text-align:left;line-height:23px;vertical-align:middle}
+ .con_view td a{width:100%;color:#1cba8c}
+ .con_view td.center{text-align:center}
+ .con_view pre{margin:0 0 50px 0;padding:20px;font-size:14px;line-height:20px;font-family:Courier;color:#666;background:#f9f9f9;border-top:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8;overflow-x:auto}
+ .con_view p .inline_char{display:inline;vertical-align:middle}
+
+/* pre 영역 스크롤 style 적용 */
+ .con_view pre::-webkit-scrollbar{height:5px}
+ .con_view pre::-webkit-scrollbar-track{-webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.3);-webkit-border-radius:0px;border-radius:0px}
+ .con_view pre::-webkit-scrollbar-thumb{-webkit-border-radius:0px;border-radius:0px;background:rgba(136,136,136,0.8);-webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.5)}
+ .con_view pre::-webkit-scrollbar-thumb:window-inactive{background:rgba(136,136,1136,0.4)}
+
+ .con_view pre code{font-family:Courier}
+ .con_view ul{list-style:disc;padding-left:45px;margin-bottom:23px}
+ .con_view ol{list-style:decimal;padding-left:45px;margin-bottom:23px}
+ .con_view ul li,
+ .con_view ol li{line-height:24px;border:0 none;font-size:16px;margin-bottom:5px}
+ .con_view ul li ul,
+ .con_view ul li ol,
+ .con_view ol li ul,
+ .con_view ol li ol{margin:5px 0}
+ .con_view ul li:last-child,
+ .con_view ol li:last-child{margin-bottom:0}
+ .con_view ul li span,
+ .con_view ol li span{margin-right:15px}
+
+ body{ background: #fafafa;}
+.widget-area.blank {
+background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+-webkit-box-shadow: none;
+-moz-box-shadow: none;
+-ms-box-shadow: none;
+-o-box-shadow: none;
+box-shadow: none;
+}
+body .no-padding {
+padding: 0;
+}
+.widget-area {
+background-color: #fff;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+-ms-border-radius: 4px;
+-o-border-radius: 4px;
+border-radius: 4px;
+-webkit-box-shadow: 0 0 16px rgba(0, 0, 0, 0.05);
+-moz-box-shadow: 0 0 16px rgba(0, 0, 0, 0.05);
+-ms-box-shadow: 0 0 16px rgba(0, 0, 0, 0.05);
+-o-box-shadow: 0 0 16px rgba(0, 0, 0, 0.05);
+box-shadow: 0 0 16px rgba(0, 0, 0, 0.05);
+float: left;
+margin-top: 30px;
+padding: 25px 30px;
+position: relative;
+width: 100%;
+}
+.status-upload {
+background: none repeat scroll 0 0 #f3f3f3;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+-ms-border-radius: 4px;
+-o-border-radius: 4px;
+border-radius: 4px;
+float: left;
+width: 100%;
+}
+.status-upload form {
+float: left;
+width: 100%;
+margin-bottom: 10px;
+}
+.status-upload form textarea {
+background: none repeat scroll 0 0 #fff;
+border: medium none;
+-webkit-border-radius: 4px 4px 0 0;
+-moz-border-radius: 4px 4px 0 0;
+-ms-border-radius: 4px 4px 0 0;
+-o-border-radius: 4px 4px 0 0;
+border-radius: 4px 4px 0 0;
+color: #000000;
+float: left;
+font-family: Lato;
+font-size: 14px;
+height: 142px;
+letter-spacing: 0.3px;
+padding: 20px;
+width: 100%;
+resize:vertical;
+outline:none;
+border: 1px solid #F2F2F2;
+}
+
+.status-upload form button {
+border: medium none;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+-ms-border-radius: 4px;
+-o-border-radius: 4px;
+border-radius: 4px;
+color: #fff;
+float: right;
+font-family: Lato;
+font-size: 14px;
+letter-spacing: 0.3px;
+margin-right: 9px;
+margin-top: 9px;
+padding: 6px 15px;
+}
+.dropdown > a > span.green:before {
+border-left-color: #2dcb73;
+}
+.status-upload form button > i {
+margin-right: 7px;
+}
+
+
+.panel{
+  margin-top: 10px;
+}
+
+.panel-white {
+  border: 1px solid #dddddd;
+}
+.panel-white  .panel-heading {
+  color: #333;
+  background-color: #fff;
+  border-color: #ddd;
+}
+.panel-white  .panel-footer {
+  background-color: #fff;
+  border-color: #ddd;
+}
+
+.post .post-heading {
+  height: 95px;
+  padding: 20px 15px;
+}
+.post .post-heading .avatar {
+  width: 60px;
+  height: 60px;
+  display: block;
+  margin-right: 15px;
+}
+.post .post-heading .meta .title {
+  margin-bottom: 0;
+}
+.post .post-heading .meta .title a {
+  color: black;
+}
+.post .post-heading .meta .title a:hover {
+  color: #aaaaaa;
+}
+.post .post-heading .meta .time {
+  margin-top: 8px;
+  color: #999;
+}
+.post .post-image .image {
+  width: 100%;
+  height: auto;
+}
+.post .post-description {
+  padding: 15px;
+}
+.post .post-description p {
+  font-size: 14px;
+}
+.post .post-description .stats {
+  margin-top: 20px;
+}
+.post .post-description .stats .stat-item {
+  display: inline-block;
+  margin-right: 15px;
+}
+.post .post-description .stats .stat-item .icon {
+  margin-right: 8px;
+}
+.post .post-footer {
+  border-top: 1px solid #ddd;
+  padding: 15px;
+}
+.post .post-footer .input-group-addon a {
+  color: #454545;
+}
+.post .post-footer .comments-list {
+  padding: 0;
+  margin-top: 10px;
+  list-style-type: none;
+}
+.post .post-footer .comments-list .comment {
+  display: block;
+  width: 100%;
+  margin: 20px 0;
+}
+.post .post-footer .comments-list .comment .avatar {
+  width: 35px;
+  height: 35px;
+}
+.post .post-footer .comments-list .comment .comment-heading {
+  display: block;
+  width: 100%;
+}
+.post .post-footer .comments-list .comment .comment-heading .user {
+  font-size: 14px;
+  font-weight: bold;
+  display: inline;
+  margin-top: 0;
+  margin-right: 10px;
+}
+.post .post-footer .comments-list .comment .comment-heading .time {
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 0;
+  display: inline;
+}
+.post .post-footer .comments-list .comment .comment-body {
+  margin-left: 50px;
+}
+.post .post-footer .comments-list .comment > .comments-list {
+  margin-left: 50px;
+}
