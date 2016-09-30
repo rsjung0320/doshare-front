@@ -1,8 +1,8 @@
-.boardlist{
-  padding-top: 40px;
-}
 
-@media only screen and (min-width: 768px) {
+@media (max-width: 768px) {
+  .boardlist{
+    padding-top: 50px;
+  }
   .intro-header .post-heading h1 {
     font-size: 55px;
   }
@@ -10,6 +10,31 @@
     font-size: 30px;
   }
 }
+
+@media (min-width: 768px) and (max-width: 1199px)  {
+  .boardlist{
+    padding-top: 65px;
+  }
+  .intro-header .post-heading h1 {
+    font-size: 55px;
+  }
+  .intro-header .post-heading .subheading {
+    font-size: 30px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .boardlist{
+    padding-top: 80px;
+  }
+  .intro-header .post-heading h1 {
+    font-size: 55px;
+  }
+  .intro-header .post-heading .subheading {
+    font-size: 30px;
+  }
+}
+
 .post-preview > a {
   color: #333333;
 }

@@ -1,3 +1,5 @@
+'use strict';
+
 var API = (function() {
 
   // var getTeam = '/api/v1/board/all';

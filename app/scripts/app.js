@@ -18,7 +18,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ngSanitize'
+    'ngSanitize',
+    'summernote'
   ])
   .config(function($routeProvider, $httpProvider) {
     $routeProvider
@@ -83,11 +84,7 @@ angular
         if (scroll >= 100) {
     		  $('.navbar-default').css('background-color', '#FFFFFF');
     		} else {
-          // var ctx = document.getElementById('canvas').getContext('2d');
-          // ctx.fillStyle = "rgba(255, 255, 255, .0 )";
           $('.navbar-default').css('background-color', 'rgba(255, 255, 255, .0 )');
-          console.log('!!!!!!!!!!');
-          // $('.navbar-default').css('background-color', rgba( 255, 255, 255, .0 ));
     		}
       }
   	});

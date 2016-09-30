@@ -12,58 +12,12 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
-
-@media (max-width: 768px) {
-  .navbar-default {
-    background-color: #2c3e50;
-    border-color: transparent;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1199px)  {
-  .navbar-default {
-    background-color: #2c3e50;
-    border-color: transparent;
-    background-color: rgba( 255, 255, 255, .0 );
-    padding-left: 80px;
-    padding-right: 80px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .navbar-default {
-    background-color: #2c3e50;
-    border-color: transparent;
-    background-color: rgba( 255, 255, 255, .0 );
-    padding-left: 180px;
-    padding-right: 180px;
-  }
-}
-
-.intro-header #maintitle{
-  font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-style: italic;
-  /*font-size: 100px;*/
-  /*line-height: 22px;*/
-  /*margin-bottom: 25px;*/
-  /*color: #000000;*/
-}
-
-.main-content-view {
-  /*font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
-  /*background-color: #eaf1f1;*/
-  /*padding-top: 40px;*/
-}
-
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
 body {
-  font-family: 'Lora', 'Times New Roman', serif;
-  font-size: 30px;
-  color: #333333;
   margin: 0;
 }
 article,
@@ -315,8 +269,8 @@ th {
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url('../bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.eot');
-  src: url('../bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('../bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff') format('woff'), url('../bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  src: url('../fonts/glyphicons-halflings-regular.eot');
+  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 .glyphicon {
   position: relative;
@@ -1165,8 +1119,6 @@ figure {
 img {
   vertical-align: middle;
 }
-
-
 .img-responsive,
 .thumbnail > img,
 .thumbnail a > img,
@@ -1348,11 +1300,6 @@ p {
   line-height: 1.4;
 }
 @media (min-width: 768px) {
-  .affix {
-    /*background-color: #2c3e50;*/
-    /*opacity: 0;*/
-    /*background-color: rgba( 255, 255, 255, 0 );*/
-   }
   .lead {
     font-size: 22.5px;
   }
@@ -1646,27 +1593,17 @@ pre code {
 }
 @media (min-width: 768px) {
   .container {
-    /*width: 750px;*/
-    width: 100%;
+    width: 750px;
   }
 }
 @media (min-width: 992px) {
   .container {
-    width: 100%;
+    width: 970px;
   }
 }
 @media (min-width: 1200px) {
-  .affix-top {
-    /*opacity: 0;*/
-    /*background-color: rgba( 0, 0, 0, .5 );*/
-   }
-
-  /*.navbar-custom {
-    background-color: rgba( 0, 0, 0, 0.5 );
-  }*/
   .container {
-    /*width: 1170px;*/
-    width: 100%;
+    width: 1170px;
   }
 }
 .container-fluid {
@@ -4240,7 +4177,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .navbar {
     border-radius: 4px;
   }
-
 }
 @media (min-width: 768px) {
   .navbar-header {
@@ -4560,22 +4496,16 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     margin-right: 0;
   }
 }
-/*.navbar-custom .navbar-collapse {
-  border-color: rgba(255, 255, 255, .0);
-}*/
-/*.navbar-default {
+.navbar-default {
   background-color: #2c3e50;
   border-color: transparent;
-  background-color: rgba( 255, 255, 255, .0 );
-  padding-left: 180px;
-  padding-right: 180px;
-}*/
+}
 .navbar-default .navbar-brand {
   color: #000000;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-  color: #000000;
+  color: #18bc9c;
   background-color: transparent;
 }
 .navbar-default .navbar-text {
@@ -4592,7 +4522,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-  color: #ffffff;
+  color: #000000;
   background-color: #1a242f;
 }
 .navbar-default .navbar-nav > .disabled > a,
@@ -4619,7 +4549,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
   background-color: #1a242f;
-  color: #ffffff;
+  color: #000000;
 }
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {

@@ -12,13 +12,13 @@ angular.module('appApp')
 
     $scope.content = "";
 
-    $('#summernote').summernote({
-      height : 350,
-      onImageUpload : function(files, editor, welEditable) {
-        console.log('onImageUpload : ', files[0]);
-          // sendFile(files[0], editor, welEditable);
-      }
-    });
+    // $('#summernote').summernote({
+    //   height : 350,
+    //   onImageUpload : function(files, editor, welEditable) {
+    //     console.log('onImageUpload : ', files[0]);
+    //       // sendFile(files[0], editor, welEditable);
+    //   }
+    // });
 
     // console.log('Summernote is launched');
     $scope.init = function() {

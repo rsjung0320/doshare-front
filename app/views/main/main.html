@@ -1,13 +1,33 @@
-<div class="mainpage">
-  <div class="container">
-    <div class="row">
-      <div class="left-panel" ng-repeat="board in boards">
-        <div class="col-md-4">
+<div class="container mainpage">
+  <div class="row text-center">
+    <div class="left-panel">
+      <div class="col-md-4" ng-repeat="board in boards">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="thumbnail">
+              <a href="#"><img src="http://www.istanbluegayrimenkul.com/wp-content/uploads/2014/05/image6.jpg" alt=""/></a>
+            </div>
+            <!-- a태그를 빼면 된다. -->
+            <a href="#">
+              <h3>{{board.title}}</h3>
+            </a>
+
+            <!-- <p>{{board.content}}</p> -->
+            <!-- {{board.title}} -->
+            <!-- {{board.content}} -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="row text-center">
+      <div class="left-panel" >
+        <div class="col-md-4" ng-repeat="board in boards">
           <div class="panel panel-default">
             <div class="panel-body">
               <div class="col-md-12">
                 <div class="thumbnail">
-                  <!-- 랜덤으로 한다. -->
                   <a href="#"><img src="http://www.istanbluegayrimenkul.com/wp-content/uploads/2014/05/image6.jpg" alt=""/></a>
                 </div>
                 <div class="icerik-bilgi">
@@ -21,6 +41,5 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
+    </div> -->
 </div>

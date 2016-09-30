@@ -1,7 +1,21 @@
-.board{
-  padding-top: 40px;
+
+@media (max-width: 768px) {
+  .board{
+    padding-top: 50px;
+  }
 }
 
+@media (min-width: 768px) and (max-width: 1199px)  {
+  .board{
+    padding-top: 65px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .board{
+    padding-top: 80px;
+  }
+}
 
  .con_view{font-size:17px;font-family: Avenir,'Lato',"애플 SD 산돌고딕 Neo","Apple SD Gothic Neo","나눔바른고딕",NanumBarunGothic,"나눔고딕",NanumGothic,"맑은 고딕","Malgun Gothic","돋움",dotum,AppleGothic,sans-serif;color:#555;line-height:20px}
  .con_view b{color:#f00;border:1px solid #e8e8e8;padding:0 5px;background:#f9f9f9;font-weight:normal}

@@ -1,3 +1,5 @@
+'use strict';
+
 var TASK_BOARD = (function() {
 
   function hello(){
