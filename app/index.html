@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Do Share</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <!-- build:css(.) styles/vendor.css -->
@@ -17,10 +17,6 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/bootswatch-flatly.css">
-    <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'> -->
     <link rel="stylesheet" href="styles/clean-blog.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/about.css">
@@ -39,7 +35,7 @@
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
             <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
           </button>
-          <a class="navbar-brand" href="#/main">Do Share</a>
+          <a class="navbar-brand" href="#/main" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true">Do Share</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true">
@@ -84,11 +80,11 @@
       </header>
     </div>
 
-    <div class="container main-content-view">
+    <div class="container main-content-view" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true">
       <div ng-view=""></div>
     </div>
 
-    <div class="footer">
+    <div class="footer" >
       <div class="container text-center">
         <hr>
         <p>

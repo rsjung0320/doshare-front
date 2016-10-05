@@ -1,15 +1,5 @@
 'use strict';
 
-// https://docs.angularjs.org/api/ngRoute/provider/$routeProvider
-
-/**
- * @ngdoc overview
- * @name appApp
- * @description
- * # appApp
- *
- * Main module of the application.
- */
 angular
   .module('appApp', [
     'ngAnimate',
@@ -67,53 +57,35 @@ angular
     // $rootScope.$on("$locationChangeStart", function(event, next, current) {
     $rootScope.$on('$locationChangeStart', function() {
       $scope.currentPath = $location.path();
-      if($scope.currentPath !== '/') {
+
+      if ($scope.currentPath !== '/') {
         $('.navbar-default').css('background-color', '#FFFFFF');
-      }else{
+      } else {
         $('.navbar-default').css('background-color', 'rgba(255, 255, 255, .0 )');
       }
     });
+
     $scope.init = function() {
       var expires = new Date();
       expires.setDate(expires.getDate() + 7);
 
       $cookies.put('myFavorite', 'oatmeal', {
-        expires : expires
+        expires: expires
       });
       var favoriteCookie = $cookies.get('myFavorite');
       console.log('favoriteCookie : ', favoriteCookie);
       // Setting a cookie
-
-    }();
-
-    // $('.collapse').click(function(){
-    //   console.log('test');
-    //   // this.addClass('collapsed');
-    //   $("button").attr("aria-expanded","false");
-    //   $(".navbar-collapse").attr("aria-expanded","false");
-    //
-    // });
-
-
-
-    //   // console.log( );
-    //   //
-    // });
-
+    };
+    $scope.init();
 
     $(window).scroll(function() {
-  		var scroll = $(window).scrollTop();
-      if($scope.currentPath === '/') {
+      var scroll = $(window).scrollTop();
+      if ($scope.currentPath === '/') {
         if (scroll >= 100) {
-    		  $('.navbar-default').css('background-color', '#FFFFFF');
-
-          console.log('=================== : ', attr);
-    		} else {
+          $('.navbar-default').css('background-color', '#FFFFFF');
+        } else {
           $('.navbar-default').css('background-color', 'rgba(255, 255, 255, .0 )');
-            var attr = $('.navbar-toggle').attr("aria-expanded");
-          console.log('aaaaaaaaaaaaaaaaaa : ', attr);
-    		}
+        }
       }
-  	});
-
+    });
   });

@@ -29,8 +29,8 @@ angular.module('appApp')
 
     $scope.save = function(){
       $scope.hidden = true;
-      var path = '/board/' + $scope.idx;
-      TASK_BOARD.task_uploadEditedBoard($scope, $route, $http, $scope.idx, $scope.text, path);
+      // var path = '/board/' + $scope.idx;
+      TASK_BOARD.task_uploadEditedBoard($scope, $route, $http, $scope.idx, $scope.text);
     };
 
     $scope.imageUpload = function(files) {

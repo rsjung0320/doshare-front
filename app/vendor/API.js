@@ -1,9 +1,8 @@
-'use strict';
-
 var API = (function() {
+  'use strict';
 
-  var GET = "GET";
-  var POST = "POST";
+  var GET = 'GET';
+  var POST = 'POST';
 
   // var getTeam = '/api/v1/board/all';
   // var getBoard = '/api/v1/board/';
@@ -28,21 +27,20 @@ var API = (function() {
   var getDownloadImage = 'http://localhost:8080/api/v1/board/download/';
   var postComment = 'http://localhost:8080/api/v1/board/comment/';
 
-	/*----------- API Interface -----------------*/
-	return {
-    GET : GET,
-    POST : POST,
-		getTeam : getTeam,
-    getBoard : getBoard,
-    getBoardAll : getBoardAll,
-    getComment : getComment,
-    postUploadBoard : postUploadBoard,
-    postUploadEditedBoard : postUploadEditedBoard,
-    getDeleteBoard : getDeleteBoard,
-    postUploadImage : postUploadImage,
-    getDownloadImage : getDownloadImage,
-    postComment : postComment
-	};
-	/*------------------------------------------------------*/
-
-})(this);
+  /*----------- API Interface -----------------*/
+  return {
+    GET: GET,
+    POST: POST,
+    getTeam: getTeam,
+    getBoard: getBoard,
+    getBoardAll: getBoardAll,
+    getComment: getComment,
+    postUploadBoard: postUploadBoard,
+    postUploadEditedBoard: postUploadEditedBoard,
+    getDeleteBoard: getDeleteBoard,
+    postUploadImage: postUploadImage,
+    getDownloadImage: getDownloadImage,
+    postComment: postComment
+  };
+  /*------------------------------------------------------*/
+})(API);
