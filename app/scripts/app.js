@@ -9,7 +9,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'ngSanitize',
-    'summernote'
+    'summernote',
+    'blockUI'
   ])
   .config(function($routeProvider, $httpProvider) {
     $routeProvider
@@ -51,7 +52,7 @@ angular
     $httpProvider.defaults.headers.common = 'Content-Type: application/json; charset=utf-8';
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
   })
-  .controller('IndexCtrl', function($scope, $http, $location, $rootScope, $cookies) {
+  .controller('IndexCtrl', function($scope, $http, $location, $rootScope, $cookies, blockUI, $timeout) {
 
     $scope.currentPath = '/';
     // $rootScope.$on("$locationChangeStart", function(event, next, current) {
@@ -75,6 +76,14 @@ angular
       var favoriteCookie = $cookies.get('myFavorite');
       console.log('favoriteCookie : ', favoriteCookie);
       // Setting a cookie
+
+      blockUI.start('Loading...');
+       $timeout(function() {
+          // Stop the block after some async operation.
+          blockUI.stop();
+          console.log('wow!!');
+      }, 1000);
+
     };
     $scope.init();
 
