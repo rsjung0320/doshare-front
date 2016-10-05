@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>DoShare</title>
+    <title>Do Share</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -26,41 +26,40 @@
     <link rel="stylesheet" href="styles/about.css">
     <link rel="stylesheet" href="styles/login.css">
     <link rel="stylesheet" href="styles/board-list.css">
-    <link rel="stylesheet" href="styles/board.css"> 
-    <!--
-
-    -->
+    <link rel="stylesheet" href="styles/board.css">
     <!-- endbuild -->
+
   </head>
   <body ng-app="appApp">
     <!--[if lte IE 8]> <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p> <![endif]-->
 
-    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top transparent affix">
+    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top affix">
       <div class="container">
-        <div class="navbar-header page-scroll">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+            <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
           </button>
-          <a class="navbar-brand page-scroll" href="#/main">Do Share</a>
+          <a class="navbar-brand" href="#/main">Do Share</a>
         </div>
 
-        <div class="collapse navbar-collapse" data-toggle="collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true">
+          <ul class=" nav navbar-nav navbar-right">
             <li>
-              <a ng-href="#/main">FACTORY</a>
+              <a href="#/main">FACTORY</a>
             </li>
             <li>
-              <a ng-href="#/board/boardlist">BOARD</a>
+              <a href="#/board/boardlist">BOARD</a>
             </li>
             <li>
-              <a ng-href="#/about">SEMINAR</a>
+              <a href="#/about">SEMINAR</a>
             </li>
             <li>
-              <a ng-href="#/login">LOG IN</a>
+              <a href="#/login">LOG IN</a>
             </li>
+            <!-- 로그인 되었을 때는 Log In 이 나오고 로그 아웃시에는 LOG OUT 이 나오도록 한다.
+             <li>
+              <a href="#/login">LOG OUT</a>
+            </li> -->
           </ul>
         </div>
       </div>

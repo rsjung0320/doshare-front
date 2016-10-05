@@ -3,18 +3,21 @@
   .board{
     padding-top: 50px;
   }
+   .con_view iframe[src]{max-width:100%;display:block;margin:0 auto;!important}
 }
 
 @media (min-width: 768px) and (max-width: 1199px)  {
   .board{
     padding-top: 65px;
   }
+   .con_view iframe[src]{max-width:100%;display:block;margin:0 auto;!important}
 }
 
 @media (min-width: 1200px) {
   .board{
     padding-top: 80px;
   }
+   .con_view iframe[src]{max-width:100%; display:block;margin:0 auto;!important}
 }
 
  .con_view{font-size:17px;font-family: Avenir,'Lato',"애플 SD 산돌고딕 Neo","Apple SD Gothic Neo","나눔바른고딕",NanumBarunGothic,"나눔고딕",NanumGothic,"맑은 고딕","Malgun Gothic","돋움",dotum,AppleGothic,sans-serif;color:#555;line-height:20px}
@@ -23,7 +26,7 @@
  .con_view p span.caption{display:block;font-size:13px;color:#777;text-align:center;line-height:15px;font-weight:normal}
  .con_view p b{font-weight:normal}
  .con_view img{max-width:100%;height:auto;padding:0;display:block;margin:0 auto}
- .con_view iframe[src]{display:block;margin:0 auto;margin-bottom:20px !important}
+
  .con_view a[href]{word-break:break-word;color:#1cba8c;text-decoration:none}
  .con_view a[href]:hover{color:#0e9d8f}
  .con_view h1{font-size:28px;color:#434a53;padding-top:10px;padding-bottom:20px}

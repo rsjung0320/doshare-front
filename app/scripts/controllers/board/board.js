@@ -8,10 +8,11 @@
  * Controller of the appApp
  */
 angular.module('appApp')
-  .controller('BoardCtrl', function ($scope, $http, $routeParams, $sce) {
+  .controller('BoardCtrl', function ($scope, $route, $http, $location, $routeParams, $sce) {
     $scope.idx = $routeParams.idx;
     $scope.comments = null;
     $scope.hidden = true;
+    $scope.editedContent = "";
 
     $scope.init = function(){
       getBoard();
@@ -19,14 +20,21 @@ angular.module('appApp')
     }();
 
     $scope.edit = function(){
-      console.log('text : ', $scope.textt);
-      // $('#click2edit').summernote({focus: true});
       $scope.hidden = false;
-      // $scope.text = '<p>hello world</p>';
+    };
+
+    $scope.delete = function(){
+      TASK_BOARD.task_deleteBoard($location, $http, $scope.idx);
     };
 
     $scope.save = function(){
       $scope.hidden = true;
+      var path = '/board/' + $scope.idx;
+      TASK_BOARD.task_uploadEditedBoard($scope, $route, $http, $scope.idx, $scope.text, path);
+    };
+
+    $scope.imageUpload = function(files) {
+      TASK_BOARD.task_imageUpload($http, $scope, files);
     };
 
     $scope.commentShare = function(form){

@@ -61,7 +61,7 @@ angular
     $httpProvider.defaults.headers.common = 'Content-Type: application/json; charset=utf-8';
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
   })
-  .controller('IndexCtrl', function($scope, $http, $location, $rootScope) {
+  .controller('IndexCtrl', function($scope, $http, $location, $rootScope, $cookies) {
 
     $scope.currentPath = '/';
     // $rootScope.$on("$locationChangeStart", function(event, next, current) {
@@ -74,17 +74,44 @@ angular
       }
     });
     $scope.init = function() {
+      var expires = new Date();
+      expires.setDate(expires.getDate() + 7);
 
-    };
-    $scope.init();
+      $cookies.put('myFavorite', 'oatmeal', {
+        expires : expires
+      });
+      var favoriteCookie = $cookies.get('myFavorite');
+      console.log('favoriteCookie : ', favoriteCookie);
+      // Setting a cookie
+
+    }();
+
+    // $('.collapse').click(function(){
+    //   console.log('test');
+    //   // this.addClass('collapsed');
+    //   $("button").attr("aria-expanded","false");
+    //   $(".navbar-collapse").attr("aria-expanded","false");
+    //
+    // });
+
+
+
+    //   // console.log( );
+    //   //
+    // });
+
 
     $(window).scroll(function() {
   		var scroll = $(window).scrollTop();
       if($scope.currentPath === '/') {
         if (scroll >= 100) {
     		  $('.navbar-default').css('background-color', '#FFFFFF');
+
+          console.log('=================== : ', attr);
     		} else {
           $('.navbar-default').css('background-color', 'rgba(255, 255, 255, .0 )');
+            var attr = $('.navbar-toggle').attr("aria-expanded");
+          console.log('aaaaaaaaaaaaaaaaaa : ', attr);
     		}
       }
   	});

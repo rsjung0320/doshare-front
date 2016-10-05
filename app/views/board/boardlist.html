@@ -14,12 +14,10 @@
           </a>
           <p class="post-meta">Posted by
             <a href="#/board">{{board.email}}</a>
-            {{board.uploadDate}}</p>
-            <!-- on September 24, 2014</p> -->
+            {{board.uploadDate | date:'yyyy-MM-dd'}}</p>
         </div>
         <hr>
       </div>
-      <!-- Pager -->
       <ul class="pager">
         <li class="next">
           <a href="#/board">Older Posts &rarr;</a>
