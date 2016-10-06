@@ -4,9 +4,10 @@ var API = (function() {
   var GET = 'GET';
   var POST = 'POST';
 
-  // var postSignin = '/login/signin';
-  // var postSignUp = '/login/signup';
-  // var getTeam = '/api/v1/board/all';
+  // var postSignin = '/login/signin/';
+  // var postSignUp = '/login/signup/';
+  // var getUserInfo = '/api/v1/user/';
+  // var getTeam = '/api/v1/board/all/';
   // var getBoard = '/api/v1/board/';
   // var getBoardAll = '/api/v1/board/all';
   // var getComment = '/api/v1/board/comment/';
@@ -17,8 +18,9 @@ var API = (function() {
   // var getDownloadImage = '/api/v1/board/download/';
   // var postComment = '/api/v1/board/comment/';
 
-  var postSignin = 'http://localhost:8080/login/signin';
-  var postSignUp = 'http://localhost:8080/login/signup';
+  var postSignin = 'http://localhost:8080/login/signin/';
+  var postSignUp = 'http://localhost:8080/login/signup/';
+  var getUserInfo = 'http://localhost:8080/api/v1/user/';
   var getTeam = 'http://localhost:8080/api/v1/board/all/';
   var getBoard = 'http://localhost:8080/api/v1/board/';
   var getBoardAll = 'http://localhost:8080/api/v1/board/all/';
@@ -37,6 +39,7 @@ var API = (function() {
     POST: POST,
     postSignin: postSignin,
     postSignUp: postSignUp,
+    getUserInfo: getUserInfo,
     getTeam: getTeam,
     getBoard: getBoard,
     getBoardAll: getBoardAll,

@@ -41,12 +41,12 @@ angular.module('appApp')
           console.log('token :', token.toString());
           $scope.authorization = 'Bearer ' + token;
           $cookies.put('token', $scope.authorization);
-          // $http.defaults.headers.common.Authorization = 'Bearer ' + token.toString();
-          // $http.defaults.headers.common['Authorization'] = $scope.authorization;
-          // $http.defaults.headers.common.Authorization = $scope.authorization
-          // console.log(  $http.defaults.headers.common.Authorization );
-          // 3-1. susscess 시 path를 /로 이동시켜준다.
-          // 토큰 혹은 다른 것을 포함하여 보낸다.
+
+          // to-do 글로벌로 올린다.
+          // 암호화 하기
+          // 3-1 user 정보를 요청한다.
+          TASK_USER.getUserInfo(angular, $http, $scope.user.email, $cookies);
+          // 3-2. susscess 시 path를 /로 이동시켜준다.
           $location.path('/');
         }).error(function(response) {
           console.log('error!! : ', response);
