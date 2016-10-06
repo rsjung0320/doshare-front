@@ -8,7 +8,7 @@
  * Controller of the appApp
  */
 angular.module('appApp')
-  .controller('BoardCtrl', function ($scope, $route, $http, $location, $routeParams, $sce) {
+  .controller('BoardCtrl', function ($scope, $route, $http, $location, $routeParams, $sce, $cookies) {
     $scope.idx = $routeParams.idx;
     $scope.comments = null;
     $scope.hidden = true;
@@ -48,7 +48,8 @@ angular.module('appApp')
               email : "rsjung@nablecomm.com",
               uploadDate : new Date(),
               board_id: $scope.idx
-            }
+            },
+            headers: {"Authorization": $cookies.get('token')}
           })
           .success(function(board) {
             $scope.commentContent = "";
@@ -64,7 +65,8 @@ angular.module('appApp')
     function getBoard(){
       $http({
           url: API.getBoard + $scope.idx,
-          method: "GET"
+          method: "GET",
+          headers: {"Authorization": $cookies.get('token')}
         })
         .success(function(board) {
           console.log('board : ', board );
@@ -82,7 +84,8 @@ angular.module('appApp')
     function getComment(){
       $http({
           url: API.getComment + $scope.idx,
-          method: "GET"
+          method: "GET",
+          headers: {"Authorization": $cookies.get('token')}
         })
         .success(function(comments) {
           $scope.comments = comments;

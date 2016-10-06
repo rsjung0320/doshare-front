@@ -4,6 +4,8 @@ var API = (function() {
   var GET = 'GET';
   var POST = 'POST';
 
+  // var postSignin = '/login/signin';
+  // var postSignUp = '/login/signup';
   // var getTeam = '/api/v1/board/all';
   // var getBoard = '/api/v1/board/';
   // var getBoardAll = '/api/v1/board/all';
@@ -15,7 +17,8 @@ var API = (function() {
   // var getDownloadImage = '/api/v1/board/download/';
   // var postComment = '/api/v1/board/comment/';
 
-
+  var postSignin = 'http://localhost:8080/login/signin';
+  var postSignUp = 'http://localhost:8080/login/signup';
   var getTeam = 'http://localhost:8080/api/v1/board/all/';
   var getBoard = 'http://localhost:8080/api/v1/board/';
   var getBoardAll = 'http://localhost:8080/api/v1/board/all/';
@@ -27,10 +30,13 @@ var API = (function() {
   var getDownloadImage = 'http://localhost:8080/api/v1/board/download/';
   var postComment = 'http://localhost:8080/api/v1/board/comment/';
 
+
   /*----------- API Interface -----------------*/
   return {
     GET: GET,
     POST: POST,
+    postSignin: postSignin,
+    postSignUp: postSignUp,
     getTeam: getTeam,
     getBoard: getBoard,
     getBoardAll: getBoardAll,

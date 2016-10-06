@@ -8,7 +8,7 @@
  * Controller of the appApp
  */
 angular.module('appApp')
-  .controller('LoginCtrl', function($scope, $http, $location) {
+  .controller('LoginCtrl', function($scope, $http, $location, $cookies) {
 
     $scope.authorization = "";
     // $scope.authorization = 'Bearer ' + token;
@@ -30,44 +30,31 @@ angular.module('appApp')
       // 3. response의 결과값을 받아온다.
 
       $http({
-          url: "http://localhost:8080/api/v1/login/signin",
+          url: API.postSignin,
           method: "POST",
           data: {
             email : $scope.user.email,
             password : $scope.user.password
           }
-            // headers: {"Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYWxseSIsInJvbGVzIjpbInVzZXIiLCJhZG1pbiJdLCJpYXQiOjE0NzMzOTc3Mzh9.lE-2brVPuZNWnz-x-xJJszdQmFTMBTOgZG4Ql9jItJs"}
         })
         .success(function(token) {
+          console.log('token :', token.toString());
           $scope.authorization = 'Bearer ' + token;
-          $http.defaults.headers.common = {"Authorization": $scope.authorization};
-          // console.log(  $http.defaults.headers.common );
+          $cookies.put('token', $scope.authorization);
+          // $http.defaults.headers.common.Authorization = 'Bearer ' + token.toString();
+          // $http.defaults.headers.common['Authorization'] = $scope.authorization;
+          // $http.defaults.headers.common.Authorization = $scope.authorization
+          // console.log(  $http.defaults.headers.common.Authorization );
           // 3-1. susscess 시 path를 /로 이동시켜준다.
           // 토큰 혹은 다른 것을 포함하여 보낸다.
           $location.path('/');
         }).error(function(response) {
-          console.log("error!!");
-          console.log(response);
+          console.log('error!! : ', response);
         });
     }
 
     $scope.signUp = function() {
       $location.path("/signup");
-    }
-
-    $scope.test1 = function() {
-      $http({
-          url: 'http://localhost:8080/admin/api/user4',
-          method: 'GET'
-          // headers: {"Authorization": $scope.authorization}
-        })
-        .success(function(resp) {
-          // $scope.authorization = 'Bearer ' + token;
-          console.log('resp : ' + resp);
-
-        }).error(function(response) {
-          console.log('error : ' + response);
-        });
     }
 
     function isEmpty(email, password) {

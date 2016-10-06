@@ -8,21 +8,23 @@
  * Controller of the appApp
  */
 angular.module('appApp')
-  .controller('MainCtrl', function($scope, $http, $location) {
+  .controller('MainCtrl', function($scope, $http, $location, $cookies) {
 
     $scope.init = function(){
-      console.log("MainCtrl init");
-      $http({
-          url: API.getTeam,
-          method: "GET"
-        })
-        .success(function(boards) {
-          $scope.boards = boards;
-          console.log('board : ', boards );
-          // console.log(JSON.parse(boards));
-        }).error(function(error) {
-          console.log("error : ", error);
-        });
+      if($cookies.get('token') !== undefined){
+        $http({
+            url: API.getTeam,
+            method: "GET",
+            headers: {"Authorization": $cookies.get('token')}
+          })
+          .success(function(boards) {
+            $scope.boards = boards;
+            console.log('board : ', boards );
+            // console.log(JSON.parse(boards));
+          }).error(function(error) {
+            console.log("error : ", error);
+          });
+      }
     }
 
     $scope.init();

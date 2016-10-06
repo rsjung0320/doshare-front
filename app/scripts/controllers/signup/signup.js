@@ -22,7 +22,7 @@ angular.module('appApp')
       // 2. 서버로 값을 보낸다.
 
       $http({
-          url: "http://localhost:8080/api/v1/login/signup",
+          url: API.postSignUp,
           method: "POST",
           data: {
             name : $scope.user.userName,
@@ -31,17 +31,14 @@ angular.module('appApp')
           }
             // headers: {"Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYWxseSIsInJvbGVzIjpbInVzZXIiLCJhZG1pbiJdLCJpYXQiOjE0NzMzOTc3Mzh9.lE-2brVPuZNWnz-x-xJJszdQmFTMBTOgZG4Ql9jItJs"}
         })
-        .success(function(token) {
-          $scope.authorization = 'Bearer ' + token;
-          $http.defaults.headers.common = {"Authorization": $scope.authorization};
-
+        .success(function(success) {
+          console.log('success : ', success);
           // console.log(  $http.defaults.headers.common );
           // 3-1. susscess 시 path를 /로 이동시켜준다.
           // 토큰 혹은 다른 것을 포함하여 보낸다.
           $location.path('/login');
-        }).error(function(response) {
-          console.log("error!!");
-          console.log(response);
+        }).error(function(error) {
+          console.log('error : ', error);
         });
       // 3. 성공 시 메인화면으로 보낸다.\
       //  3-1. 실패 시 에러메시지를 화면에 보여준다.

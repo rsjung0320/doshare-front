@@ -49,10 +49,11 @@ angular
         redirectTo: '/'
       });
     $httpProvider.defaults.useXDomain = true;
-    $httpProvider.defaults.headers.common = 'Content-Type: application/json; charset=utf-8';
+    $httpProvider.defaults.headers.common = 'Content-Type: text/plain;';
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
+    // $httpProvider.defaults.headers.delete = { 'Content-Type' : 'application/json' };
   })
-  .controller('IndexCtrl', function($scope, $http, $location, $rootScope, $cookies, blockUI, $timeout) {
+  .controller('IndexCtrl', function($scope, $http, $route, $location, $rootScope, $cookies, blockUI, $timeout) {
 
     $scope.currentPath = '/';
     // $rootScope.$on("$locationChangeStart", function(event, next, current) {
@@ -73,15 +74,15 @@ angular
       $cookies.put('myFavorite', 'oatmeal', {
         expires: expires
       });
-      var favoriteCookie = $cookies.get('myFavorite');
-      console.log('favoriteCookie : ', favoriteCookie);
+      // var favoriteCookie = $cookies.get('myFavorite');
+      // console.log('favoriteCookie : ', favoriteCookie);
       // Setting a cookie
 
       blockUI.start('Loading...');
        $timeout(function() {
           // Stop the block after some async operation.
           blockUI.stop();
-          console.log('wow!!');
+          // $route.reload();
       }, 1000);
 
     };

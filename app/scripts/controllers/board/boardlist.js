@@ -8,11 +8,13 @@
  * Controller of the appApp
  */
 angular.module('appApp')
-  .controller('BoardlistCtrl', function ($scope, $http, $location) {
+  .controller('BoardlistCtrl', function ($scope, $http, $location, $cookies) {
     $scope.init = function(){
+      console.log('BoardlistCtrl init');
       $http({
           url: API.getBoardAll,
-          method: "GET"
+          method: "GET",
+          headers: {"Authorization": $cookies.get('token')}
         })
         .success(function(boards) {
           $scope.boards = boards;
@@ -21,7 +23,8 @@ angular.module('appApp')
         }).error(function(error) {
           console.log("error : ", error);
         });
-    }();
+    };
+    $scope.init();
     $scope.findById = function(id){
       $location.path('/board/' + id);
     }
