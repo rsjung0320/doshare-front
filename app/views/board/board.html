@@ -3,9 +3,14 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 con_view">
-        <h2 class="post-title">
-          {{title}}
-        </h2>
+        <span ng-hide="!hidden">
+          <h2 class="post-title">
+            {{title}}
+          </h2>
+        </span>
+        <span ng-hide="hidden">
+          <input type="text" ng-model="title" class="form-control" id="inputTitle" placeholder="Title">
+        </span>
         <h6>
           <i class="fa fa-clock-o" aria-hidden="true">
             {{uploadDate | date:'yyyy-MM-dd'}}</i>

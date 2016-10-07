@@ -52,12 +52,13 @@ var TASK_BOARD = (function() {
     }
   }
 
-  function uploadEditedBoard($scope, $route, $http, $cookies, idx, editedContent) {
+  function uploadEditedBoard($scope, $route, $http, $cookies, idx, title, editedContent) {
     $http({
         url: API.postUploadEditedBoard,
         method: API.POST,
         data: {
           idx: idx,
+          title: title,
           updatedDate: new Date(),
           content: editedContent
         },
