@@ -8,7 +8,7 @@
  * Controller of the appApp
  */
 angular.module('appApp')
-  .controller('AboutCtrl', function($scope, $http, $httpParamSerializerJQLike, $location) {
+  .controller('AboutCtrl', function($scope, $http, $location, $cookies) {
 
     $scope.content = "";
 
@@ -20,11 +20,11 @@ angular.module('appApp')
     };
 
     $scope.imageUpload = function(files) {
-      TASK_BOARD.task_imageUpload($http, $scope, files);
+      TASK_BOARD.imageUpload($http, $scope, $cookies, files);
     };
 
     $scope.uploadBoard = function() {
       var path = '/board/boardlist';
-      TASK_BOARD.task_uploadBoard($scope, $http, $location, path);
+      TASK_BOARD.uploadBoard($scope, $http, $location, $cookies, path);
     };
   });

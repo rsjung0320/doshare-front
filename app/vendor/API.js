@@ -14,7 +14,7 @@ var API = (function() {
   // var postUploadBoard = '/api/v1/board/upload/board';
   // var postUploadEditedBoard = '/api/v1/board/upload/edited/board';
   // var getDeleteBoard = '/api/v1/board/delete/';
-  // var postUploadImage = '/api/v1/board/upload/image';
+  // var postUploadImage = '/api/v1/board/upload/image/';
   // var getDownloadImage = '/api/v1/board/download/';
   // var postComment = '/api/v1/board/comment/';
 

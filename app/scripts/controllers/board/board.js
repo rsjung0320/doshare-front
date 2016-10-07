@@ -24,17 +24,17 @@ angular.module('appApp')
     };
 
     $scope.delete = function(){
-      TASK_BOARD.task_deleteBoard($location, $http, $scope.idx);
+      TASK_BOARD.deleteBoard($location, $http, $cookies, $scope.idx);
     };
 
     $scope.save = function(){
       $scope.hidden = true;
       // var path = '/board/' + $scope.idx;
-      TASK_BOARD.task_uploadEditedBoard($scope, $route, $http, $scope.idx, $scope.text);
+      TASK_BOARD.uploadEditedBoard($scope, $route, $http, $cookies, $scope.idx, $scope.text);
     };
 
     $scope.imageUpload = function(files) {
-      TASK_BOARD.task_imageUpload($http, $scope, files);
+      TASK_BOARD.imageUpload($http, $scope, $cookies, files);
     };
 
     $scope.commentShare = function(form){

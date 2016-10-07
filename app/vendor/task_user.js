@@ -4,9 +4,9 @@ var TASK_USER = (function() {
   function getUserInfo(angular, $http, email, $cookies){
     $http({
       url: API.getUserInfo + email,
-      method: "GET",
+      method: 'GET',
       headers: {
-        "Authorization": $cookies.get('token')
+        'Authorization': $cookies.get('token')
       }
     }).success(function(userInfo) {
       $cookies.put('userInfo', angular.toJson(userInfo));

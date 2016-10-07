@@ -14,6 +14,7 @@
     "angular": false,
     "$": false,
     "API": true,
-    "TASK_BOARD": true
+    "TASK_USER": true,
+    "TASK_BOARD": true    
   }
 }

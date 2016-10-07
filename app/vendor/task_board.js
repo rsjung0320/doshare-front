@@ -1,7 +1,7 @@
 var TASK_BOARD = (function() {
   'use strict';
 
-  function imageUpload($http, $scope, files) {
+  function imageUpload($http, $scope, $cookies, files) {
     // 파일을 업로드 한다.
     // to-do 4mb 제한을 둔다.
     var formdata = new FormData();
@@ -10,12 +10,14 @@ var TASK_BOARD = (function() {
         url: API.postUploadImage,
         method: API.POST,
         data: formdata,
+        transformRequest: angular.identity,
         headers: {
-          'Content-Type': undefined
+          'Content-Type': undefined,
+          'Authorization': $cookies.get('token')
         },
-        transformRequest: angular.identity
       })
       .success(function(name) {
+        console.log('name :', name);
         if (name !== '') {
           var path = API.getDownloadImage + name;
           $scope.editor.summernote('editor.insertImage', path, name);
@@ -25,7 +27,7 @@ var TASK_BOARD = (function() {
       });
   }
 
-  function uploadBoard($scope, $http, $location, path) {
+  function uploadBoard($scope, $http, $location, $cookies, path) {
     if ($scope.content !== '') {
       $http({
           url: API.postUploadBoard,
@@ -36,7 +38,8 @@ var TASK_BOARD = (function() {
             email: 'rsjung@nablecomm.com',
             uploadDate: new Date(),
             content: $scope.content
-          }
+          },
+          headers: {'Authorization': $cookies.get('token')},
         })
         .success(function(data) {
           console.log('data : ', data);
@@ -49,7 +52,7 @@ var TASK_BOARD = (function() {
     }
   }
 
-  function uploadEditedBoard($scope, $route, $http, idx, editedContent) {
+  function uploadEditedBoard($scope, $route, $http, $cookies, idx, editedContent) {
     $http({
         url: API.postUploadEditedBoard,
         method: API.POST,
@@ -57,7 +60,8 @@ var TASK_BOARD = (function() {
           idx: idx,
           updatedDate: new Date(),
           content: editedContent
-        }
+        },
+        headers: {'Authorization': $cookies.get('token')},
       })
       .success(function(success) {
         console.log('success : ', success);
@@ -67,10 +71,11 @@ var TASK_BOARD = (function() {
       });
   }
 
-  function deleteBoard($location, $http, idx) {
+  function deleteBoard($location, $http, $cookies, idx) {
     $http({
         url: API.getDeleteBoard + idx,
         method: API.GET,
+        headers: {'Authorization': $cookies.get('token')},
       })
       .success(function(success) {
         console.log('success : ', success);
