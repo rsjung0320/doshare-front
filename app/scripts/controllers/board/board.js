@@ -38,6 +38,7 @@ angular.module('appApp')
     };
 
     $scope.commentShare = function(form){
+      var userInfo = angular.fromJson($cookies.get('userInfo'));
       if($scope.commentContent !== "") {
         $http({
             url: API.postComment,
@@ -45,7 +46,7 @@ angular.module('appApp')
             data: {
               content : $scope.commentContent,
               // 이러한 정보는 캐쉬 혹은 메모리에서 가지고 있도록 한다.
-              email : "rsjung@nablecomm.com",
+              email : userInfo.email,
               uploadDate : new Date(),
               board_id: $scope.idx
             },

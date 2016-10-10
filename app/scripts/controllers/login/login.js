@@ -8,61 +8,69 @@
  * Controller of the appApp
  */
 angular.module('appApp')
-  .controller('LoginCtrl', function($scope, $http, $location, $cookies) {
+  .controller('LoginCtrl', function($scope, $http, $location, $cookies, $timeout, $rootScope, ModalService) {
 
     $scope.authorization = "";
-    // $scope.authorization = 'Bearer ' + token;
+    $scope.pwHidden = false;
     // to-do
     // 1. 암호화해서 보낸다.
-
     $scope.submit = function() {
       // 1. email, password를 가져온다
-      var email = $scope.user.email;
-      var password = $scope.user.password;
+      var email = $scope.email;
+      var password = $scope.password;
+      console.log('email : ', $scope.email);
+      console.log('password : ', $scope.password);
+      // console.log('here');
 
-      // to-do 생각해보니, 태그 자체에 required를 붙였으니 한번 더 할 필요는 없는 것 같아. 추후에 삭제하기
-      if (!isEmpty(email, password)) {
-        // 2. validation 체크를 한다.
+      // 2. validation 체크를 한다.
+      if ($scope.form.$valid) {
+        // console.log('OK!');
+        // 3. response의 결과값을 받아온다.
+        $http({
+            url: API.postSignin,
+            method: "POST",
+            data: {
+              email: $scope.email,
+              password: $scope.password
+            }
+          })
+          .success(function(token) {
+            console.log('token :', token.toString());
+            $scope.authorization = 'Bearer ' + token;
+            $cookies.put('token', $scope.authorization);
+
+            // 암호화 하기
+            // 3-1 user 정보를 요청한다.
+            TASK_USER.getUserInfo(angular, $http, $scope.email, $cookies, $rootScope, $location);
+
+          }).error(function(response) {
+            // to-do i18n 처리하기
+            // alert('Please check your ID or password.');
+
+
+            ModalService.showModal({
+              templateUrl: 'views/global/modal.html',
+                controller: 'modalController'
+            }).then(function(modal) {
+              modal.element.modal();
+              modal.close.then(function(result) {
+                $scope.message = "You said " + result;
+              });
+            });
+            console.log('error!! : ', response);
+          });
+
       } else {
-        // 에러팝업 띄우기
+        // 에러팝업 띄우기.
+        $scope.pwHidden = true;
       }
-
-      // 3. response의 결과값을 받아온다.
-
-      $http({
-          url: API.postSignin,
-          method: "POST",
-          data: {
-            email : $scope.user.email,
-            password : $scope.user.password
-          }
-        })
-        .success(function(token) {
-          console.log('token :', token.toString());
-          $scope.authorization = 'Bearer ' + token;
-          $cookies.put('token', $scope.authorization);
-
-          // to-do 글로벌로 올린다.
-          // 암호화 하기
-          // 3-1 user 정보를 요청한다.
-          TASK_USER.getUserInfo(angular, $http, $scope.user.email, $cookies);
-          // 3-2. susscess 시 path를 /로 이동시켜준다.
-          $location.path('/');
-        }).error(function(response) {
-          console.log('error!! : ', response);
-        });
     }
 
     $scope.signUp = function() {
       $location.path("/signup");
     }
 
-    function isEmpty(email, password) {
-      var result = false;
-      if (email === '' || email === null || password === '' || password === null) {
-        result = true;
-      }
-      return result;
+    $scope.hidePwErrorMsg = function() {
+      $scope.pwHidden = false;
     }
-
   });

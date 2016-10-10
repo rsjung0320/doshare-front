@@ -10,7 +10,8 @@ angular
     'ngTouch',
     'ngSanitize',
     'summernote',
-    'blockUI'
+    'blockUI',
+    'angularModalService'
   ])
   .config(function($routeProvider, $httpProvider) {
     $routeProvider
@@ -54,7 +55,7 @@ angular
     // $httpProvider.defaults.headers.delete = { 'Content-Type' : 'application/json' };
   })
   .controller('IndexCtrl', function($scope, $http, $route, $location, $rootScope, $cookies, blockUI, $timeout) {
-
+    $rootScope.loginFlag = false;
     $scope.currentPath = '/';
     // $rootScope.$on("$locationChangeStart", function(event, next, current) {
     $rootScope.$on('$locationChangeStart', function() {
@@ -68,16 +69,6 @@ angular
     });
 
     $scope.init = function() {
-      var expires = new Date();
-      expires.setDate(expires.getDate() + 7);
-
-      $cookies.put('myFavorite', 'oatmeal', {
-        expires: expires
-      });
-      // var favoriteCookie = $cookies.get('myFavorite');
-      // console.log('favoriteCookie : ', favoriteCookie);
-      // Setting a cookie
-
       blockUI.start('Loading...');
        $timeout(function() {
           // Stop the block after some async operation.
@@ -87,6 +78,16 @@ angular
 
     };
     $scope.init();
+
+    $scope.logout = function(){
+      $cookies.remove('userInfo');
+      $cookies.remove('token');
+      $rootScope.loginFlag = false;
+
+
+      $location.path('/login');
+      $route.reload();
+    };
 
     $(window).scroll(function() {
       var scroll = $(window).scrollTop();

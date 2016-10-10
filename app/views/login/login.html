@@ -6,19 +6,23 @@
           <h3 class="panel-title">Login via site</h3>
         </div>
         <div class="panel-body">
-          <form accept-charset="UTF-8" role="form" name="form" ng-submit="submit()" novalidate>
+          <form accept-charset="UTF-8" role="form" name="form" ng-submit="submit()">
             <fieldset>
-              <div class="input-group margin-bottom-sm" ng-class="{'has-error' : form.email.$invalid && !form.email.$pristine}">
+              <div class="input-group margin-bottom-sm">
                 <span class="input-group-addon">
                   <i class="fa fa-envelope-o fa-fw"></i>
                 </span>
-                <input class="form-control" type="text" placeholder="Email address" required autofocus ng-model="user.email">
+                <input class="form-control" type="email" placeholder="Email address" autofocus ng-model="email" ng-required="true">
               </div>
-              <div class="input-group" ng-class="{'has-error' : form.password.$invalid && !form.password.$pristine}">
+              <div class="input-group">
                 <span class="input-group-addon">
                   <i class="fa fa-key fa-fw"></i>
                 </span>
-                <input class="form-control" type="password" placeholder="Password" required ng-model="user.password">
+                <input class="form-control" name="password" type="password" placeholder="Password" ng-click="hidePwErrorMsg()" ng-model="password" ng-required="true" ng-pattern="/^(?=.*\d)(?=.*[a-z])/" ng-minlength="6" ng-maxlength="20">
+              </div>
+              <div ng-hidden='pwHidden' ng-show="pwHidden" class="col-xs-12 col-md-12 alert alert-warning" role="alert">
+                이름은 최소 2글자만 입력가능합니다.
+                성은 최대 4글자만 입력가능합니다.
               </div>
 
               <div class="checkbox">
@@ -26,7 +30,7 @@
                   <input name="remember" type="checkbox" value="Remember Me">
                   Remember Me
                 </label>
-                <a class="pull-right" href="http://bootsnipp.com/password">Forgot password?</a>
+                <a class="pull-right" href="">Forgot password?</a>
               </div>
               <input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
             </fieldset>

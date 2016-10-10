@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Do Share</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <!-- build:css(.) styles/vendor.css -->
@@ -27,14 +27,16 @@
     <!-- endbuild -->
 
   </head>
-  <body ng-app="appApp">
+  <body ng-app="appApp" ng-controller="IndexCtrl">
     <!--[if lte IE 8]> <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p> <![endif]-->
 
     <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top affix">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
-            <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+            <span class="sr-only">Toggle navigation</span>
+            Menu
+            <i class="fa fa-bars"></i>
           </button>
           <a class="navbar-brand" href="#/main" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true">Do Share</a>
         </div>
@@ -50,19 +52,18 @@
             <li>
               <a href="#/about">SEMINAR</a>
             </li>
-            <li>
+            <li ng-hide="loginFlag">
               <a href="#/login">LOG IN</a>
             </li>
-            <!-- 로그인 되었을 때는 Log In 이 나오고 로그 아웃시에는 LOG OUT 이 나오도록 한다.
-             <li>
-              <a href="#/login">LOG OUT</a>
-            </li> -->
+            <li ng-hide="!loginFlag">
+              <a href="" ng-click="logout()">LOGOUT</a>
+            </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <div ng-controller="IndexCtrl" ng-hide="currentPath !== '/'">
+    <div ng-hide="currentPath !== '/'">
       <!-- Page Header -->
       <!-- Set your background image for this header on the line below. -->
       <header class="intro-header" style="background-image: url('images/home-bg9.jpg')">
@@ -70,7 +71,9 @@
           <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
               <div class="site-heading">
-                <h1 id="maintitle">Come And See<br/><h3 id="maintitle">For World Wide People</h3></h1>
+                <h1 id="maintitle">Come And See<br/>
+                  <h3 id="maintitle">For World Wide People</h3>
+                </h1>
                 <!-- <hr class="small"> -->
                 <br/>
                 <!-- <span class="subheading" id="maintitle">WHAT DO YOU THINK?</span> -->
@@ -85,7 +88,7 @@
       <div ng-view=""></div>
     </div>
 
-    <div class="footer" >
+    <div class="footer">
       <div class="container text-center">
         <hr>
         <p>
@@ -127,11 +130,13 @@
     <script src="bower_components/summernote/dist/summernote.js"></script>
     <script src="bower_components/angular-summernote/dist/angular-summernote.js"></script>
     <script src="bower_components/angular-block-ui/dist/angular-block-ui.js"></script>
+    <script src="bower_components/angular-modal-service/dst/angular-modal-service.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="vendor/API.js"></script>
+    <script src="vendor/globalFlag.js"></script>
     <script src="vendor/task_user.js"></script>
     <script src="vendor/task_board.js"></script>
     <script src="scripts/app.js"></script>
@@ -141,6 +146,7 @@
     <script src="scripts/controllers/signup/signup.js"></script>
     <script src="scripts/controllers/board/boardlist.js"></script>
     <script src="scripts/controllers/board/board.js"></script>
+    <script src="scripts/controllers/global/modalController.js"></script>
     <!-- endbuild -->
   </body>
 </html>

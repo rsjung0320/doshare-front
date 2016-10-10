@@ -28,6 +28,8 @@ var TASK_BOARD = (function() {
   }
 
   function uploadBoard($scope, $http, $location, $cookies, path) {
+    var userInfo = angular.fromJson($cookies.get('userInfo'));
+    console.log('userInfo :', userInfo);
     if ($scope.content !== '') {
       $http({
           url: API.postUploadBoard,
@@ -35,9 +37,10 @@ var TASK_BOARD = (function() {
           data: {
             title: $scope.title,
             // to-do 이러한 정보는 캐쉬 혹은 메모리에서 가지고 있도록 한다.
-            email: 'rsjung@nablecomm.com',
+            email: userInfo.email,
             uploadDate: new Date(),
-            content: $scope.content
+            content: $scope.content,
+            authorId: userInfo.idx
           },
           headers: {'Authorization': $cookies.get('token')},
         })
