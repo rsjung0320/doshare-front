@@ -41,23 +41,16 @@ angular.module('appApp')
 
             // 암호화 하기
             // 3-1 user 정보를 요청한다.
-            TASK_USER.getUserInfo(angular, $http, $scope.email, $cookies, $rootScope, $location);
+            TASK_USER.postUserInfo(angular, $http, $scope.email, $cookies, $rootScope, $location);
 
           }).error(function(response) {
-            // to-do i18n 처리하기
-            // alert('Please check your ID or password.');
-
-
             ModalService.showModal({
               templateUrl: 'views/global/modal.html',
-                controller: 'modalController'
+              controller: 'modalController'
             }).then(function(modal) {
               modal.element.modal();
-              modal.close.then(function(result) {
-                $scope.message = "You said " + result;
-              });
+              $scope.password = '';
             });
-            console.log('error!! : ', response);
           });
 
       } else {

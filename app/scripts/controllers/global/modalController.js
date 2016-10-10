@@ -7,16 +7,10 @@
  * # BoardBoardlistCtrl
  * Controller of the appApp
  */
-// angular.module('appApp')
-//   .controller('modalController', function ($scope, $http, $location, $cookies) {
-//     $scope.init = function(){
-//       console.log('modalController');
-//     };
-//     $scope.init();
-//   });
+angular.module('appApp').controller('modalController', function($scope) {
 
-  angular.module('appApp').controller('modalController', function($scope) {
-
-    // when you need to close the modal, call close
-    // close("Success!");
-  });
+  $scope.close = function(result) {
+    return close = "test";
+    //  close(result);
+  };
+});

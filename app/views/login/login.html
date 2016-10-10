@@ -21,8 +21,7 @@
                 <input class="form-control" name="password" type="password" placeholder="Password" ng-click="hidePwErrorMsg()" ng-model="password" ng-required="true" ng-pattern="/^(?=.*\d)(?=.*[a-z])/" ng-minlength="6" ng-maxlength="20">
               </div>
               <div ng-hidden='pwHidden' ng-show="pwHidden" class="col-xs-12 col-md-12 alert alert-warning" role="alert">
-                이름은 최소 2글자만 입력가능합니다.
-                성은 최대 4글자만 입력가능합니다.
+                  Password must be 6 to 20 characters in length and include Numbers.
               </div>
 
               <div class="checkbox">

@@ -2,14 +2,18 @@ var TASK_USER = (function() {
   'use strict';
 
   // user 정보를 요청 후, 쿠키에 저장한다.
-  function getUserInfo(angular, $http, email, $cookies, $rootScope, $location) {
+  function postUserInfo(angular, $http, email, $cookies, $rootScope, $location) {
     $http({
-      url: API.getUserInfo + email,
-      method: 'GET',
+      url: API.postUserInfo,
+      method: 'POST',
+      data: {
+        email: email
+      },
       headers: {
         'Authorization': $cookies.get('token')
       }
     }).success(function(userInfo) {
+      console.log('postUserInfo userInfo :', userInfo);
       $cookies.put('userInfo', angular.toJson(userInfo));
       // 로그인 메뉴를 로그아웃으로 변경한다.
       $rootScope.loginFlag = true;
@@ -22,7 +26,7 @@ var TASK_USER = (function() {
 
   /*----------- TASK_USER Interface -----------------*/
   return {
-    getUserInfo: getUserInfo
+    postUserInfo: postUserInfo
   };
   /*------------------------------------------------------*/
 
