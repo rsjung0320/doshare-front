@@ -13,17 +13,18 @@ var TASK_BOARD = (function() {
         transformRequest: angular.identity,
         headers: {
           'Content-Type': undefined,
-          'Authorization': $cookies.get('token')
+          // 'Authorization': $cookies.get('token')
         },
       })
-      .success(function(name) {
-        console.log('name :', name);
-        if (name !== '') {
+      .success(function(data, status, headers, config) {
+        console.log('data :', data);
+        if (data.message !== '') {
+          var name = data.message;
           var path = API.getDownloadImage + name;
           $scope.editor.summernote('editor.insertImage', path, name);
         }
-      }).error(function(error) {
-        console.log('error : ', error);
+      }).error(function(data, status, headers, config) {
+        console.log('data : ', data);
       });
   }
 
@@ -41,8 +42,9 @@ var TASK_BOARD = (function() {
             uploadDate: new Date(),
             content: $scope.content,
             authorId: userInfo.idx
-          },
-          headers: {'Authorization': $cookies.get('token')},
+          }
+          // ,
+          // headers: {'Authorization': $cookies.get('token')},
         })
         .success(function(data) {
           console.log('data : ', data);
@@ -64,8 +66,9 @@ var TASK_BOARD = (function() {
           title: title,
           updatedDate: new Date(),
           content: editedContent
-        },
-        headers: {'Authorization': $cookies.get('token')},
+        }
+        // ,
+        // headers: {'Authorization': $cookies.get('token')},
       })
       .success(function(success) {
         console.log('success : ', success);
@@ -78,8 +81,9 @@ var TASK_BOARD = (function() {
   function deleteBoard($location, $http, $cookies, idx) {
     $http({
         url: API.getDeleteBoard + idx,
-        method: API.GET,
-        headers: {'Authorization': $cookies.get('token')},
+        method: API.GET
+        // ,
+        // headers: {'Authorization': $cookies.get('token')},
       })
       .success(function(success) {
         console.log('success : ', success);

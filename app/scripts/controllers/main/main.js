@@ -14,8 +14,9 @@ angular.module('appApp')
       if($cookies.get('token') !== undefined){
         $http({
             url: API.getTeam,
-            method: "GET",
-            headers: {"Authorization": $cookies.get('token')}
+            method: "GET"
+            // skipAuthorization: true,
+            // headers: {"Authorization": $cookies.get('token')}
           })
           .success(function(boards) {
             $scope.boards = boards;

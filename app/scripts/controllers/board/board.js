@@ -49,16 +49,20 @@ angular.module('appApp')
               email : userInfo.email,
               uploadDate : new Date(),
               board_id: $scope.idx
-            },
-            headers: {"Authorization": $cookies.get('token')}
+            }
+            // ,
+            // headers: {"Authorization": $cookies.get('token')}
           })
-          .success(function(board) {
+          .success(function(data, status, headers, config) {
             $scope.commentContent = "";
             getComment();
             // $scope.reset();
             // comment 다시 불러오기
-          }).error(function(error) {
-            console.log("error : ", error);
+          }).error(function(data, status, headers, config) {
+            console.log("data : ", data);
+            console.log("status : ", status);
+            console.log("headers : ", headers);
+            console.log("config : ", config);
           });
       }
     };
@@ -66,8 +70,9 @@ angular.module('appApp')
     function getBoard(){
       $http({
           url: API.getBoard + $scope.idx,
-          method: "GET",
-          headers: {"Authorization": $cookies.get('token')}
+          method: "GET"
+          // ,
+          // headers: {"Authorization": $cookies.get('token')}
         })
         .success(function(board) {
           console.log('board : ', board );
@@ -85,8 +90,9 @@ angular.module('appApp')
     function getComment(){
       $http({
           url: API.getComment + $scope.idx,
-          method: "GET",
-          headers: {"Authorization": $cookies.get('token')}
+          method: "GET"
+          // ,
+          // headers: {"Authorization": $cookies.get('token')}
         })
         .success(function(comments) {
           $scope.comments = comments;

@@ -8,10 +8,11 @@ var TASK_USER = (function() {
       method: 'POST',
       data: {
         email: email
-      },
-      headers: {
-        'Authorization': $cookies.get('token')
       }
+      // ,
+      // headers: {
+      //   'Authorization': $cookies.get('token')
+      // }
     }).success(function(userInfo) {
       console.log('postUserInfo userInfo :', userInfo);
       $cookies.put('userInfo', angular.toJson(userInfo));

@@ -13,8 +13,8 @@ angular.module('appApp')
       console.log('BoardlistCtrl init');
       $http({
           url: API.getBoardAll,
-          method: "GET",
-          headers: {"Authorization": $cookies.get('token')}
+          method: "GET"
+          // headers: {"Authorization": $cookies.get('token')}
         })
         .success(function(boards) {
           $scope.boards = boards;
