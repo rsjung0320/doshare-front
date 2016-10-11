@@ -12,6 +12,7 @@ angular.module('appApp')
     $scope.idx = $routeParams.idx;
     $scope.comments = null;
     $scope.hidden = true;
+    $scope.isAuthor = false;
     $scope.editedContent = "";
 
     $scope.init = function(){
@@ -82,6 +83,9 @@ angular.module('appApp')
           $scope.email = board.email;
           $scope.readCount = board.readCount;
           $scope.uploadDate = board.uploadDate;
+
+          setIsAuthor(board.email);
+
         }).error(function(error) {
           console.log("error : ", error);
         });
@@ -102,4 +106,10 @@ angular.module('appApp')
         });
     }
 
+    function setIsAuthor(email){
+      var userInfo = angular.fromJson($cookies.get('userInfo'));
+      if(email === userInfo.email){
+        $scope.isAuthor = true;
+      }
+    }
   });

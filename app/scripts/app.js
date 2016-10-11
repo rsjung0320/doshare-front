@@ -11,10 +11,9 @@ angular
     'ngSanitize',
     'summernote',
     'blockUI',
-    'angularModalService',
-    'angular-jwt'
+    'angularModalService'
   ])
-  .config(function($routeProvider, $httpProvider, jwtOptionsProvider) {
+  .config(function($routeProvider, $httpProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main/main.html',
@@ -62,7 +61,6 @@ angular
     // $httpProvider.interceptors.push('jwtInterceptor');
 
     $httpProvider.defaults.useXDomain = true;
-    // $httpProvider.defaults.headers.common = 'Content-Type: application/json, text/plain, *﻿/﻿*';
     // delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
   })
@@ -74,10 +72,24 @@ angular
       console.log($cookies.get('token'));
       $rootScope.loginFlag = true;
       $http.defaults.headers.common.Authorization = $cookies.get('token');
-
     }
+
+    // redirect to login page if not logged in and trying to access a restricted page
+    // $rootScope.$on('$locationChangeStart', function(event, next, current) {
+    $rootScope.$on('$locationChangeStart', function() {
+      var mainPages = ['/'];
+      var restrictedMainPage = mainPages.indexOf($location.path()) === -1;
+
+      var boardListPages = ['/board/boardlist'];
+      var restrictedBoardListPage = boardListPages.indexOf($location.path()) === -1;
+
+      if ( restrictedMainPage && restrictedBoardListPage && !$cookies.get('token')) {
+        $location.path('/login');
+      }
+    });
   })
-  .controller('IndexCtrl', function($scope, $http, $route, $location, $rootScope, $cookies, blockUI, $timeout) {
+  // .controller('IndexCtrl', function($scope, $http, $route, $location, $rootScope, $cookies, blockUI, $timeout) {
+  .controller('IndexCtrl', function($scope, $http, $route, $location, $rootScope, $cookies) {
 
     $scope.currentPath = '/';
     // $rootScope.$on("$locationChangeStart", function(event, next, current) {
@@ -92,12 +104,12 @@ angular
     });
 
     $scope.init = function() {
-      blockUI.start('Loading...');
-      $timeout(function() {
-        // Stop the block after some async operation.
-        blockUI.stop();
-        // $route.reload();
-      }, 1000);
+      // blockUI.start('Loading...');
+      // $timeout(function() {
+      //   // Stop the block after some async operation.
+      //   blockUI.stop();
+      //   // $route.reload();
+      // }, 1000);
 
     };
     $scope.init();
@@ -105,9 +117,8 @@ angular
     $scope.logout = function() {
       $cookies.remove('userInfo');
       $cookies.remove('token');
+      $http.defaults.headers.common.Authorization = '';
       $rootScope.loginFlag = false;
-
-
       $location.path('/login');
       $route.reload();
     };

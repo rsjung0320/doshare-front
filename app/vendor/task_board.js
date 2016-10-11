@@ -16,14 +16,14 @@ var TASK_BOARD = (function() {
           // 'Authorization': $cookies.get('token')
         },
       })
-      .success(function(data, status, headers, config) {
+      .success(function(data) {
         console.log('data :', data);
         if (data.message !== '') {
           var name = data.message;
           var path = API.getDownloadImage + name;
           $scope.editor.summernote('editor.insertImage', path, name);
         }
-      }).error(function(data, status, headers, config) {
+      }).error(function(data) {
         console.log('data : ', data);
       });
   }

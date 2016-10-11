@@ -24,9 +24,11 @@
           <br/>
           <br/>
           <!-- to-do 본인일 때만 하도록 한다. email로 체크해도 된다.-->
-          <button class="btn btn-info btn-xs" ng-click="edit()" ng-hide="!hidden">edit</button>
-          <button class="btn btn-danger btn-xs" ng-click="delete()" ng-hide="!hidden">delete</button>
-          <button class="btn btn-success btn-xs" ng-click="save()" ng-hide="hidden">save</button>
+          <span ng-hide="!isAuthor">
+            <button class="btn btn-info btn-xs" ng-click="edit()" ng-hide="!hidden">edit</button>
+            <button class="btn btn-danger btn-xs" ng-click="delete()" ng-hide="!hidden">delete</button>
+            <button class="btn btn-success btn-xs" ng-click="save()" ng-hide="hidden">save</button>
+          </span>
         </h6>
         <hr>
         <span ng-hide="!hidden">

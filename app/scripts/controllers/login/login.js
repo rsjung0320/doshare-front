@@ -32,10 +32,13 @@ angular.module('appApp')
             }
           })
           .success(function(data, status, headers, config) {
-            $scope.authorization = 'Bearer ' + data;
+            var token = data.message;
+            $scope.authorization = 'Bearer ' + token;
             $cookies.put('token', $scope.authorization);
             // to-do 암호화 하기
             // 3-1 user 정보를 요청한다.
+            $http.defaults.headers.common.Authorization = $scope.authorization;
+
             TASK_USER.postUserInfo(angular, $http, $scope.email, $cookies, $rootScope, $location);
 
           }).error(function(data, status, headers, config) {
