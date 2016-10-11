@@ -45,8 +45,8 @@ angular.module('appApp')
 
           }).error(function(response) {
             ModalService.showModal({
-              templateUrl: 'views/global/modal.html',
-              controller: 'modalController'
+              templateUrl: 'views/global/loginModal.html',
+              controller: 'loginModalController'
             }).then(function(modal) {
               modal.element.modal();
               $scope.password = '';
@@ -63,7 +63,7 @@ angular.module('appApp')
       $location.path("/signup");
     }
 
-    $scope.hidePwErrorMsg = function() {
-      $scope.pwHidden = false;
-    }
+    // $scope.hidePwErrorMsg = function() {
+    //   $scope.pwHidden = false;
+    // }
   });
