@@ -61,7 +61,7 @@ angular
     $rootScope.loginFlag = false;
 
 
-
+    //
     if ($cookies.get('token')) {
       if(!jwtHelper.isTokenExpired($cookies.get('token'))){
         $rootScope.loginFlag = true;
@@ -139,6 +139,8 @@ angular
     $scope.logout = function() {
       $cookies.remove('userInfo');
       $cookies.remove('token');
+      $cookies.remove('refreshToken');
+
       $http.defaults.headers.common.Authorization = '';
       $rootScope.loginFlag = false;
       $location.path('/');

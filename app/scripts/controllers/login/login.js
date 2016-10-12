@@ -8,10 +8,11 @@
  * Controller of the appApp
  */
 angular.module('appApp')
-  .controller('LoginCtrl', function($scope, $http, $location, $cookies, $timeout, $rootScope, ModalService) {
+  .controller('LoginCtrl', function($scope, $http, $location, $cookies, $timeout, $rootScope, ModalService, jwtHelper) {
 
     $scope.authorization = "";
     $scope.pwHidden = false;
+    $scope.remember = false;
     // to-do
     // 1. 암호화해서 보낸다.
     $scope.submit = function() {
@@ -28,13 +29,18 @@ angular.module('appApp')
             method: "POST",
             data: {
               email: $scope.email,
-              password: $scope.password
+              password: $scope.password,
+              remember: $scope.remember
             }
           })
           .success(function(data, status, headers, config) {
-            var token = data.message;
-            $scope.authorization = 'Bearer ' + token;
-            $cookies.put('token', token);
+            $scope.authorization = 'Bearer ' + data.token;
+            $cookies.put('token', data.token, {'expires': jwtHelper.getTokenExpirationDate(data.token)});
+            // refreshtoken가 있을 경우 저장한다.
+            if(data.refreshToken !== ''){
+              $cookies.put('refreshToken', data.refreshToken, {'expires': jwtHelper.getTokenExpirationDate(data.refreshToken)});
+            }
+
             // to-do 암호화 하기
             // 3-1 user 정보를 요청한다.
             $http.defaults.headers.common.Authorization = $scope.authorization;
@@ -62,8 +68,4 @@ angular.module('appApp')
     $scope.signUp = function() {
       $location.path("/signup");
     }
-
-    // $scope.hidePwErrorMsg = function() {
-    //   $scope.pwHidden = false;
-    // }
   });
