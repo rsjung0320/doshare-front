@@ -34,7 +34,7 @@ angular.module('appApp')
           .success(function(data, status, headers, config) {
             var token = data.message;
             $scope.authorization = 'Bearer ' + token;
-            $cookies.put('token', $scope.authorization);
+            $cookies.put('token', token);
             // to-do 암호화 하기
             // 3-1 user 정보를 요청한다.
             $http.defaults.headers.common.Authorization = $scope.authorization;

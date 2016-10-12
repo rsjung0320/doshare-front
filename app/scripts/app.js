@@ -13,7 +13,8 @@ angular
     'ngSanitize',
     'summernote',
     'blockUI',
-    'angularModalService'
+    'angularModalService',
+    'angular-jwt'
   ])
   .config(function($routeProvider, $httpProvider) {
     $routeProvider
@@ -52,27 +53,22 @@ angular
         redirectTo: '/'
       });
 
-    // jwtOptionsProvider.config({
-    //   tokenGetter: ['options', function(options) {
-    //     // options.doSomething();
-    //     console.log( $cookies.get('token'));
-    //     return $cookies.get('token');
-    //   }]
-    // });
-    //
-    // $httpProvider.interceptors.push('jwtInterceptor');
-
     $httpProvider.defaults.useXDomain = true;
     // delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
   })
-  .run(function($rootScope, $http, $location, $cookies, $window) {
+  .run(function($rootScope, $http, $location, $cookies, $window, jwtHelper) {
     $rootScope.loginFlag = false;
 
+
+
     if ($cookies.get('token')) {
-      console.log($cookies.get('token'));
-      $rootScope.loginFlag = true;
-      $http.defaults.headers.common.Authorization = $cookies.get('token');
+      if(!jwtHelper.isTokenExpired($cookies.get('token'))){
+        $rootScope.loginFlag = true;
+        $http.defaults.headers.common.Authorization = 'Bearer ' + $cookies.get('token');
+      } else {
+        $cookies.remove('token');
+      }
     }
 
     // redirect to login page if not logged in and trying to access a restricted page
@@ -100,15 +96,14 @@ angular
 
     $(document).keydown(function(e) {
       if ((e.keyCode === 82 && e.ctrlKey) || (e.keyCode === 116)) {
-        // e.preventDefault();
-        console.log('test');
         isRefresh = true;
       }
     });
 
-    $window.onbeforeunload = function(e) {
+    $window.onbeforeunload = function() {
       if (!isRefresh) {
-        $cookies.remove('token');
+        // to-do 배포시에 주석 풀기
+        // $cookies.remove('token');
       }
     };
 

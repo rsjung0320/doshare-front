@@ -33,6 +33,7 @@ module.exports = function(config) {
       'bower_components/angular-summernote/dist/angular-summernote.js',
       'bower_components/angular-block-ui/dist/angular-block-ui.js',
       'bower_components/angular-modal-service/dst/angular-modal-service.js',
+      'bower_components/angular-jwt/dist/angular-jwt.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',
