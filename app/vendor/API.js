@@ -3,7 +3,7 @@ var API = (function() {
 
   var GET = 'GET';
   var POST = 'POST';
-
+  // var postRefreshToken = '/login/token/refresh/';
   // var postSignin = '/login/signin/';
   // var postSignUp = '/login/signup/';
   // var postUserInfo = '/api/v1/user/';
@@ -18,6 +18,7 @@ var API = (function() {
   // var getDownloadImage = '/api/v1/board/download/';
   // var postComment = '/api/v1/board/comment/';
 
+  var postRefreshToken = 'http://localhost:8080/login/token/refresh/';
   var postSignin = 'http://localhost:8080/login/signin/';
   var postSignUp = 'http://localhost:8080/login/signup/';
   var postUserInfo = 'http://localhost:8080/api/v1/user/';
@@ -37,6 +38,7 @@ var API = (function() {
   return {
     GET: GET,
     POST: POST,
+    postRefreshToken: postRefreshToken,
     postSignin: postSignin,
     postSignUp: postSignUp,
     postUserInfo: postUserInfo,

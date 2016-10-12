@@ -60,16 +60,52 @@ angular
   .run(function($rootScope, $http, $location, $cookies, $window, jwtHelper) {
     $rootScope.loginFlag = false;
 
+    var token = $cookies.get('token');
+    var refreshToken = $cookies.get('refreshToken');
 
-    //
-    if ($cookies.get('token')) {
-      if(!jwtHelper.isTokenExpired($cookies.get('token'))){
-        $rootScope.loginFlag = true;
-        $http.defaults.headers.common.Authorization = 'Bearer ' + $cookies.get('token');
+    if (token && !jwtHelper.isTokenExpired(token)) {
+      $rootScope.loginFlag = true;
+      $http.defaults.headers.common.Authorization = 'Bearer ' + $cookies.get('token');
+    } else {
+      if (refreshToken && !jwtHelper.isTokenExpired(refreshToken)) {
+
+        var userInfo = jwtHelper.decodeToken(refreshToken);
+        $http({
+            url: API.postRefreshToken,
+            method: API.POST,
+            data: {
+              email: userInfo.iss,
+              role: userInfo.roles,
+              refreshToken: refreshToken
+            }
+          })
+          .success(function(data) {
+            $rootScope.loginFlag = true;
+
+            $cookies.remove('token');
+            $cookies.remove('refreshToken');
+
+            var authorization = 'Bearer ' + data.token;
+            $cookies.put('token', data.token, {'expires': jwtHelper.getTokenExpirationDate(data.token)});
+            // refreshtoken가 있을 경우 저장한다.
+            $cookies.put('refreshToken', data.refreshToken, {'expires': jwtHelper.getTokenExpirationDate(data.refreshToken)});
+
+            $http.defaults.headers.common.Authorization = authorization;
+          }).error(function(data, status) {
+            if(status===400){
+              // refresh가 30일이 넘은 것이니 다 지운다.
+
+              $cookies.remove('token');
+              $cookies.remove('refreshToken');
+            }
+          });
       } else {
+        // refreshToken 도 없고, 만료가 된거면 다 지운다.
         $cookies.remove('token');
+        $cookies.remove('refreshToken');
       }
     }
+
 
     // redirect to login page if not logged in and trying to access a restricted page
     // $rootScope.$on('$locationChangeStart', function(event, next, current) {

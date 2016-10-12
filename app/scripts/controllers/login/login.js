@@ -24,6 +24,7 @@ angular.module('appApp')
       if ($scope.form.$valid) {
         // console.log('OK!');
         // 3. response의 결과값을 받아온다.
+        console.log(' $scope.remember :',  $scope.remember);
         $http({
             url: API.postSignin,
             method: "POST",
@@ -38,6 +39,7 @@ angular.module('appApp')
             $cookies.put('token', data.token, {'expires': jwtHelper.getTokenExpirationDate(data.token)});
             // refreshtoken가 있을 경우 저장한다.
             if(data.refreshToken !== ''){
+              // expires 가 25일 이상만 되도 저장이 안된다. 크롬 정책인듯 하다.
               $cookies.put('refreshToken', data.refreshToken, {'expires': jwtHelper.getTokenExpirationDate(data.refreshToken)});
             }
 
