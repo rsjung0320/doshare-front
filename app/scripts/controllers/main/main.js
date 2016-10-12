@@ -19,8 +19,6 @@ angular.module('appApp')
         })
         .success(function(boards) {
           $scope.boards = boards;
-          console.log('board : ', boards);
-          // console.log(JSON.parse(boards));
         }).error(function(error) {
           console.log("error : ", error);
         });

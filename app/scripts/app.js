@@ -1,5 +1,7 @@
 'use strict';
 
+
+
 angular
   .module('appApp', [
     'ngAnimate',
@@ -64,9 +66,8 @@ angular
     // delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
   })
-  .run(function($rootScope, $http, $location, $cookies) {
+  .run(function($rootScope, $http, $location, $cookies, $window) {
     $rootScope.loginFlag = false;
-    console.log('run!!!');
 
     if ($cookies.get('token')) {
       console.log($cookies.get('token'));
@@ -77,16 +78,44 @@ angular
     // redirect to login page if not logged in and trying to access a restricted page
     // $rootScope.$on('$locationChangeStart', function(event, next, current) {
     $rootScope.$on('$locationChangeStart', function() {
+      // console.log($location.path());
+      var homePages = [''];
+      var restrictedhomePage = homePages.indexOf($location.path()) === -1;
+
       var mainPages = ['/'];
       var restrictedMainPage = mainPages.indexOf($location.path()) === -1;
 
       var boardListPages = ['/board/boardlist'];
       var restrictedBoardListPage = boardListPages.indexOf($location.path()) === -1;
 
-      if ( restrictedMainPage && restrictedBoardListPage && !$cookies.get('token')) {
+      if (restrictedhomePage && restrictedMainPage && restrictedBoardListPage && !$cookies.get('token')) {
         $location.path('/login');
       }
     });
+
+
+    // refresh 관련 처리,
+    // to-do tab으로 끄거나 refresh 상태는 잘 모르겠음 추후 도전해 볼 것
+    var isRefresh = false;
+
+    $(document).keydown(function(e) {
+      if ((e.keyCode === 82 && e.ctrlKey) || (e.keyCode === 116)) {
+        // e.preventDefault();
+        console.log('test');
+        isRefresh = true;
+      }
+    });
+
+    $window.onbeforeunload = function(e) {
+      if (!isRefresh) {
+        $cookies.remove('token');
+        return 'Close';
+      }
+    };
+
+    $window.onunload = function() {
+      console.log('-----------------------------------');
+    };
   })
   // .controller('IndexCtrl', function($scope, $http, $route, $location, $rootScope, $cookies, blockUI, $timeout) {
   .controller('IndexCtrl', function($scope, $http, $route, $location, $rootScope, $cookies) {
@@ -110,7 +139,6 @@ angular
       //   blockUI.stop();
       //   // $route.reload();
       // }, 1000);
-
     };
     $scope.init();
 
@@ -119,7 +147,7 @@ angular
       $cookies.remove('token');
       $http.defaults.headers.common.Authorization = '';
       $rootScope.loginFlag = false;
-      $location.path('/login');
+      $location.path('/');
       $route.reload();
     };
 
