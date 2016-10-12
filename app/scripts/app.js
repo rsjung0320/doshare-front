@@ -109,7 +109,6 @@ angular
     $window.onbeforeunload = function(e) {
       if (!isRefresh) {
         $cookies.remove('token');
-        return 'Close';
       }
     };
 
