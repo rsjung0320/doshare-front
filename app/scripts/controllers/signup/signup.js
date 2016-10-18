@@ -36,8 +36,16 @@ angular.module('appApp')
             })
             .success(function(data, status, headers, config) {
               console.log('success data : ', data);
+
               if (status === 201) {
                 // 3-1. susscess 시 path를 /로 이동시켜준다.
+                ModalService.showModal({
+                  templateUrl: 'views/global/signupSuceessModal.html',
+                  controller: 'signupSuceessModalController'
+                }).then(function(modal) {
+                  modal.element.modal();
+                  $scope.password = '';
+                });
                 $location.path('/login');
               }
             }).error(function(data, status, headers, config) {

@@ -17,7 +17,7 @@
                 <input class="form-control" type="text" name="username" placeholder="User Name" autofocus ng-required="true" ng-model="userName" ng-pattern="/^[ㄱ-ㅎ|가-힣|a-z|A-Z|0-9|\*]+$/">
               </div>
               <div ng-show="form.username.$error.pattern" class="col-xs-12 col-md-12 alert alert-warning" role="alert">
-                  Cannot contain any special characters.
+                Cannot contain any special characters.
               </div>
               <br/>
 
@@ -38,7 +38,7 @@
                 <input class="form-control" name="password" type="password" placeholder="Password" ng-click="hidePwErrorMsg()" ng-required="true" ng-model="password" ng-pattern="/^(?=.*\d)(?=.*[a-z])/" ng-minlength="6" ng-maxlength="20">
               </div>
               <div ng-show="form.password.$error.pattern" class="col-xs-12 col-md-12 alert alert-warning" role="alert">
-                  Password must be 6 to 20 characters in length and include Numbers.
+                Password must be 6 to 20 characters in length and include Numbers.
               </div>
               <br/>
 
