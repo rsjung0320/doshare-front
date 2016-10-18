@@ -30,7 +30,6 @@ var TASK_BOARD = (function() {
 
   function uploadBoard($scope, $http, $location, $cookies, path) {
     var userInfo = angular.fromJson($cookies.get('userInfo'));
-    console.log('userInfo :', userInfo);
     if ($scope.content !== '') {
       $http({
           url: API.postUploadBoard,
@@ -41,7 +40,7 @@ var TASK_BOARD = (function() {
             email: userInfo.email,
             uploadDate: new Date(),
             content: $scope.content,
-            authorId: userInfo.idx
+            userIdx: userInfo.idx
           }
           // ,
           // headers: {'Authorization': $cookies.get('token')},
@@ -59,10 +58,9 @@ var TASK_BOARD = (function() {
 
   function uploadEditedBoard($scope, $route, $http, $cookies, idx, title, editedContent) {
     $http({
-        url: API.postUploadEditedBoard,
+        url: API.postUploadEditedBoard + idx,
         method: API.POST,
         data: {
-          idx: idx,
           title: title,
           updatedDate: new Date(),
           content: editedContent

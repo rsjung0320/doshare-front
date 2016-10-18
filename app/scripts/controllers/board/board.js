@@ -46,7 +46,6 @@ angular.module('appApp')
             method: "POST",
             data: {
               content : $scope.commentContent,
-              // 이러한 정보는 캐쉬 혹은 메모리에서 가지고 있도록 한다.
               email : userInfo.email,
               uploadDate : new Date()
             }
