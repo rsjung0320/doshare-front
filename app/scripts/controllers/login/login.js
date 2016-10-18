@@ -8,7 +8,7 @@
  * Controller of the appApp
  */
 angular.module('appApp')
-  .controller('LoginCtrl', function($scope, $http, $location, $cookies, $timeout, $rootScope, ModalService, jwtHelper) {
+  .controller('LoginCtrl', function($scope, $http, $location, $cookies, $timeout, $rootScope, ModalService, jwtHelper, loginService) {
 
     $scope.authorization = "";
     $scope.pwHidden = false;
@@ -25,41 +25,9 @@ angular.module('appApp')
         // console.log('OK!');
         // 3. response의 결과값을 받아온다.
         console.log(' $scope.remember :',  $scope.remember);
-        $http({
-            url: API.postSignin,
-            method: "POST",
-            data: {
-              email: $scope.email,
-              password: $scope.password,
-              remember: $scope.remember
-            }
-          })
-          .success(function(data, status, headers, config) {
-            $scope.authorization = 'Bearer ' + data.token;
-            $cookies.put('token', data.token, {'expires': jwtHelper.getTokenExpirationDate(data.token)});
-            // refreshtoken가 있을 경우 저장한다.
-            if(data.refreshToken !== ''){
-              // expires 가 25일 이상만 되도 저장이 안된다. 크롬 정책인듯 하다.
-              $cookies.put('refreshToken', data.refreshToken, {'expires': jwtHelper.getTokenExpirationDate(data.refreshToken)});
-            }
 
-            // to-do 암호화 하기
-            // 3-1 user 정보를 요청한다.
-            $http.defaults.headers.common.Authorization = $scope.authorization;
-
-            TASK_USER.postUserInfo(angular, $http, $scope.email, $cookies, $rootScope, $location);
-
-          }).error(function(data, status, headers, config) {
-            if(status === 400){
-              ModalService.showModal({
-                templateUrl: 'views/global/loginModal.html',
-                controller: 'loginModalController'
-              }).then(function(modal) {
-                modal.element.modal();
-                $scope.password = '';
-              });
-            }
-          });
+        // 로그인 서비스 이용
+        loginService.login(API, $http, $scope, jwtHelper, $cookies, ModalService, $rootScope, $location);
 
       } else {
         // 에러팝업 띄우기.
