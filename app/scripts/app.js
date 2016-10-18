@@ -58,10 +58,11 @@ angular
 
   })
   .run(function($rootScope, $http, $location, $cookies, $window, jwtHelper, $interval) {
+
     $rootScope.loginFlag = false;
 
     // refresh 토큰 재발행 관련 처리
-    var rememberToken = function(){
+    var rememberToken = function() {
       var token = $cookies.get('token');
       var refreshToken = $cookies.get('refreshToken');
 
@@ -128,7 +129,10 @@ angular
       var boardListPages = ['/board/boardlist'];
       var restrictedBoardListPage = boardListPages.indexOf($location.path()) === -1;
 
-      if (restrictedhomePage && restrictedMainPage && restrictedBoardListPage && !$cookies.get('token')) {
+      var signUpPages = ['/signup'];
+      var restrictedsignUpPagesPage = signUpPages.indexOf($location.path()) === -1;
+
+      if (restrictedhomePage && restrictedMainPage && restrictedBoardListPage && !$cookies.get('token') && restrictedsignUpPagesPage) {
         $location.path('/login');
       }
     });
@@ -151,14 +155,14 @@ angular
       }
     };
 
-    // to-do 로그인을 안하고 1시간 이상동안 있을 수도 있다.!
+    // 1시간 마다 토큰 재발행 관련 처리
     var intervalChangeToken = function() {
-      // 토큰 재발행 관련 처리
+
       var token = $cookies.get('token');
       var refreshToken = $cookies.get('refreshToken');
       var remember = false;
 
-      if(refreshToken){
+      if (refreshToken) {
         remember = true;
       }
 
@@ -181,7 +185,7 @@ angular
               'expires': jwtHelper.getTokenExpirationDate(data.token)
             });
             // refreshtoken가 있을 경우 저장한다.
-            if(data.refreshToken !== ''){
+            if (data.refreshToken !== '') {
               $cookies.put('refreshToken', data.refreshToken, {
                 'expires': jwtHelper.getTokenExpirationDate(data.refreshToken)
               });

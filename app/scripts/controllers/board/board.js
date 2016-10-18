@@ -42,17 +42,14 @@ angular.module('appApp')
       var userInfo = angular.fromJson($cookies.get('userInfo'));
       if($scope.commentContent !== "") {
         $http({
-            url: API.postComment,
+            url: API.postComment + $scope.idx,
             method: "POST",
             data: {
               content : $scope.commentContent,
               // 이러한 정보는 캐쉬 혹은 메모리에서 가지고 있도록 한다.
               email : userInfo.email,
-              uploadDate : new Date(),
-              board_id: $scope.idx
+              uploadDate : new Date()
             }
-            // ,
-            // headers: {"Authorization": $cookies.get('token')}
           })
           .success(function(data, status, headers, config) {
             $scope.commentContent = "";
