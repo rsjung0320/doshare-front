@@ -17,8 +17,9 @@ angular.module('appApp')
         })
         .success(function(boards) {
           console.log('board : ', boards );
-          console.log('board : ', boards.content );
-          $scope.boards = boards.content;
+          // console.log('board : ', boards.content );
+          // $scope.boards = boards.content;
+          $scope.boards = boards;
 
           // console.log(JSON.parse(boards));
         }).error(function(error) {
