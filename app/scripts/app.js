@@ -12,7 +12,8 @@ angular
     'summernote',
     'blockUI',
     'angularModalService',
-    'angular-jwt'
+    'angular-jwt',
+    'bw.paging'
   ])
   .config(function($routeProvider, $httpProvider) {
     $routeProvider
