@@ -224,7 +224,7 @@ angular
       if ($scope.currentPath !== '/') {
         $('.navbar-default').css('background-color', '#FFFFFF');
       } else {
-        $('.navbar-default').css('background-color', 'rgba(255, 255, 255, .0 )');
+        $('.navbar-default').css('background-color', 'rgba(255, 255, 255, .1 )');
       }
     });
 
@@ -255,7 +255,7 @@ angular
         if (scroll >= 100) {
           $('.navbar-default').css('background-color', '#FFFFFF');
         } else {
-          $('.navbar-default').css('background-color', 'rgba(255, 255, 255, .0 )');
+          $('.navbar-default').css('background-color', 'rgba(255, 255, 255, .1 )');
         }
       }
     });
