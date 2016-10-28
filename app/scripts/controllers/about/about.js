@@ -9,8 +9,8 @@
  */
 angular.module('appApp')
   .controller('AboutCtrl', function($scope, $http, $location, $cookies) {
-
     $scope.content = "";
+    $scope.tags = "";
 
     // console.log('Summernote is launched');
     $scope.init = function() {}();
@@ -25,6 +25,7 @@ angular.module('appApp')
 
     $scope.uploadBoard = function() {
       var path = '/board/boardlist';
-      TASK_BOARD.uploadBoard($scope, $http, $location, $cookies, path);
+      console.log($scope.tag);
+      TASK_BOARD.uploadBoard($scope, $http, $location, $cookies, path, $scope.tags);
     };
   });

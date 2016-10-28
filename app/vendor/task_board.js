@@ -28,7 +28,8 @@ var TASK_BOARD = (function() {
       });
   }
 
-  function uploadBoard($scope, $http, $location, $cookies, path) {
+  function uploadBoard($scope, $http, $location, $cookies, path, tags) {
+    console.log('tags :', tags);
     var userInfo = angular.fromJson($cookies.get('userInfo'));
     if ($scope.content !== '') {
       $http({
@@ -40,7 +41,8 @@ var TASK_BOARD = (function() {
             email: userInfo.email,
             uploadDate: new Date(),
             content: $scope.content,
-            userIdx: userInfo.idx
+            userIdx: userInfo.idx,
+            tags: tags
           }
           // ,
           // headers: {'Authorization': $cookies.get('token')},
