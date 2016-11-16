@@ -9,12 +9,22 @@
               {{board.title}}
             </h2>
             <h3 class="post-subtitle">
-              Problems look mighty small from 150 miles up
+              <!-- Problems look mighty small from 150 miles up -->
+              {{board.content | limitTo: 9 }}
             </h3>
           </a>
-          <p class="post-meta">Posted by
-            <a href="#/board">{{board.email}}</a>
-            {{board.uploadDate | date:'yyyy-MM-dd'}}</p>
+
+          <p class="post-meta">
+            조회수:
+            {{board.readCount}}
+            <span class="line_bar" data-reactid=".0.1.0.0.0:$1.0.3.3.0">|</span>
+            <i class="fa fa-clock-o" aria-hidden="true">
+              {{board.uploadDate | date:'yyyy-MM-dd'}}</i>
+            <span class="line_bar" data-reactid=".0.1.0.0.0:$1.0.3.3.0">|</span>
+            <i class="fa fa-user" aria-hidden="true">
+              {{board.email}}</i>
+          </p>
+
         </div>
         <hr>
       </div>

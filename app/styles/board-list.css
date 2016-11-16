@@ -1,75 +1,44 @@
 
 @media (max-width: 768px) {
   .boardlist{
-    padding-top: 50px;
-  }
-  .intro-header .post-heading h1 {
-    font-size: 55px;
-  }
-  .intro-header .post-heading .subheading {
-    font-size: 30px;
+    /*padding-top: 50px;*/
   }
 }
 
 @media (min-width: 768px) and (max-width: 1199px)  {
   .boardlist{
-    padding-top: 65px;
-  }
-  .intro-header .post-heading h1 {
-    font-size: 55px;
-  }
-  .intro-header .post-heading .subheading {
-    font-size: 30px;
+    /*padding-top: 65px;*/
   }
 }
 
 @media (min-width: 1200px) {
   .boardlist{
-    padding-top: 80px;
-  }
-  .intro-header .post-heading h1 {
-    font-size: 55px;
-  }
-  .intro-header .post-heading .subheading {
-    font-size: 30px;
+    /*padding-top: 80px;*/
   }
 }
 
 .post-preview > a {
-  color: #333333;
+  color: #434a53;
+}
+.post-preview > a > .post-title {
+  font-size: 28px;
 }
 .post-preview > a:hover,
 .post-preview > a:focus {
   text-decoration: none;
-  color: #18bc9c;
-}
-.post-preview > a > .post-title {
-  font-size: 30px;
-  margin-top: 30px;
-  margin-bottom: 10px;
+  /*color: #18bc9c;*/
 }
 .post-preview > a > .post-subtitle {
-  margin: 0;
-  font-weight: 300;
-  margin-bottom: 10px;
+  font-size: 17px;
+  margin-bottom: 15px;
+  color:#667
 }
 .post-preview > .post-meta {
-  color: #777777;
-  font-size: 18px;
-  font-style: italic;
-  margin-top: 0;
+  color: #b5b5b5;
+  font-size: 13px;
+  margin: 0;
 }
-.post-preview > .post-meta > a {
-  text-decoration: none;
-  color: #333333;
-}
-.post-preview > .post-meta > a:hover,
-.post-preview > .post-meta > a:focus {
-  color: #0085A1;
-  text-decoration: underline;
-}
-@media only screen and (min-width: 768px) {
-  .post-preview > a > .post-title {
-    font-size: 36px;
-  }
+.line_bar{
+  margin-left: 15px;
+  margin-right: 15px;
 }

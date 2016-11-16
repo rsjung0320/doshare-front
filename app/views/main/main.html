@@ -5,10 +5,10 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="thumbnail">
-              <a href="#"><img src="https://source.unsplash.com/category/technology/1600x900" alt=""/></a>
+              <a ng-click="findById(board.idx)"><img src="https://source.unsplash.com/category/technology/1600x900" alt=""/></a>
             </div>
             <!-- a태그를 빼면 된다. -->
-            <a href="#">
+            <a ng-click="findById(board.idx)">
               <h3>{{board.title}}</h3>
             </a>
           </div>
