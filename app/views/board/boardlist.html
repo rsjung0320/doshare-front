@@ -10,13 +10,15 @@
             </h2>
             <h3 class="post-subtitle">
               <!-- Problems look mighty small from 150 miles up -->
-              {{board.content | limitTo: 9 }}
+              <!-- {{board.content | limitTo: 9 }} -->
+              <div class="con_view">
+                <element ng-bind-html="board.content | contentCut:true:200:'...'"></element>
+              </div>
             </h3>
           </a>
 
           <p class="post-meta">
-            조회수:
-            {{board.readCount}}
+            조회수 : {{board.readCount}}
             <span class="line_bar" data-reactid=".0.1.0.0.0:$1.0.3.3.0">|</span>
             <i class="fa fa-clock-o" aria-hidden="true">
               {{board.uploadDate | date:'yyyy-MM-dd'}}</i>

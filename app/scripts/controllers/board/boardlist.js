@@ -8,7 +8,8 @@
  * Controller of the appApp
  */
 angular.module('appApp')
-  .controller('BoardlistCtrl', function ($scope, $http, $location, $cookies) {
+  .controller('BoardlistCtrl', function ($scope, $http, $location, $cookies, $sce) {
+    $scope.content = null;
     $scope.init = function(){
       $http({
           url: API.getBoardAll,
@@ -19,6 +20,7 @@ angular.module('appApp')
           console.log('board : ', boards );
           // console.log('board : ', boards.content );
           // $scope.boards = boards.content;
+          $scope.content = $sce.trustAsHtml(boards.content);
           $scope.boards = boards;
 
           // console.log(JSON.parse(boards));

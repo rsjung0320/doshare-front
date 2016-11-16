@@ -20,7 +20,7 @@
    .con_view iframe[src]{max-width:100%; display:block;margin:0 auto;!important}
 }
 
- .con_view{font-size:17px;font-family: Avenir,'Lato',"애플 SD 산돌고딕 Neo","Apple SD Gothic Neo","나눔바른고딕",NanumBarunGothic,"나눔고딕",NanumGothic,"맑은 고딕","Malgun Gothic","돋움",dotum,AppleGothic,sans-serif;color:#555;line-height:20px}
+ .con_view{font-size:17px;font-family: Avenir,'Lato',"애플 SD 산돌고딕 Neo","Apple SD Gothic Neo","나눔바른고딕",NanumBarunGothic,"나눔고딕",NanumGothic,"맑은 고딕","Malgun Gothic","돋움",dotum,AppleGothic,sans-serif;color:#555;line-height:20px;word-break:break-all;}
  .con_view b{color:#f00;border:1px solid #e8e8e8;padding:0 5px;background:#f9f9f9;font-weight:normal}
  .con_view p{padding-bottom:15px}
  .con_view p span.caption{display:block;font-size:13px;color:#777;text-align:center;line-height:15px;font-weight:normal}

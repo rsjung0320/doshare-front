@@ -16,7 +16,9 @@
     /*padding-top: 80px;*/
   }
 }
-
+.con_view{
+  word-break:break-all;
+}
 .post-preview > a {
   color: #434a53;
 }

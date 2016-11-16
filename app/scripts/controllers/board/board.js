@@ -14,6 +14,7 @@ angular.module('appApp')
     $scope.hidden = true;
     $scope.isAuthor = false;
     $scope.editedContent = "";
+    $scope.tags = null;
 
     $scope.init = function(){
       getBoard();
@@ -38,6 +39,7 @@ angular.module('appApp')
       TASK_BOARD.imageUpload($http, $scope, $cookies, files);
     };
 
+    // comment를 저장한다.
     $scope.commentShare = function(form){
       var userInfo = angular.fromJson($cookies.get('userInfo'));
       if($scope.commentContent !== "") {
@@ -79,6 +81,7 @@ angular.module('appApp')
           $scope.email = board.email;
           $scope.readCount = board.readCount;
           $scope.uploadDate = board.uploadDate;
+          $scope.tags = board.tags;
 
           setIsAuthor(board.email);
 
