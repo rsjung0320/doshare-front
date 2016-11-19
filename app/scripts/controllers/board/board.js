@@ -18,7 +18,7 @@ angular.module('appApp')
 
     $scope.init = function(){
       getBoard();
-      getComment();
+      // getComment();
     }();
 
     $scope.edit = function(){
@@ -82,6 +82,7 @@ angular.module('appApp')
           $scope.readCount = board.readCount;
           $scope.uploadDate = board.uploadDate;
           $scope.tags = board.tags;
+          $scope.comments = board.comments;
 
           setIsAuthor(board.email);
 
