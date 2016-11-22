@@ -37,9 +37,7 @@ var TASK_BOARD = (function() {
           method: API.POST,
           data: {
             title: $scope.title,
-            // to-do 이러한 정보는 캐쉬 혹은 메모리에서 가지고 있도록 한다.
             email: userInfo.email,
-            uploadDate: new Date(),
             content: $scope.content,
             userIdx: userInfo.idx,
             tags: tags
@@ -64,7 +62,6 @@ var TASK_BOARD = (function() {
         method: API.POST,
         data: {
           title: title,
-          updatedDate: new Date(),
           content: editedContent
         }
         // ,

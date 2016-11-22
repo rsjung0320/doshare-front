@@ -48,8 +48,7 @@ angular.module('appApp')
             method: "POST",
             data: {
               content : $scope.commentContent,
-              email : userInfo.email,
-              uploadDate : new Date()
+              email : userInfo.email
             }
           })
           .success(function(data, status, headers, config) {

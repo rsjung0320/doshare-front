@@ -28,7 +28,6 @@ angular.module('appApp')
           value = value.substr(0, lastspace);
         }
       }
-      // console.log('value :', value);
       return value + (tail || ' …');
     };
   });
