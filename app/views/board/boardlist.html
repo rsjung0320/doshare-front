@@ -18,24 +18,22 @@
           </a>
 
           <p class="post-meta">
-            조회수 : {{board.readCount}}
+            조회수 :
+            {{board.readCount}}
             <span class="line_bar" data-reactid=".0.1.0.0.0:$1.0.3.3.0">|</span>
-            게시일 : {{board.uploadDate | date:'yyyy-MM-dd'}}</i>
-            <span class="line_bar" data-reactid=".0.1.0.0.0:$1.0.3.3.0">|</span>
-            <i class="fa fa-user" aria-hidden="true">
-              {{board.email}}</i>
-          </p>
+            게시일 :
+            {{board.uploadDate | date:'yyyy-MM-dd'}}</i>
+          <span class="line_bar" data-reactid=".0.1.0.0.0:$1.0.3.3.0">|</span>
+          <i class="fa fa-user" aria-hidden="true">
+            {{board.email}}</i>
+        </p>
 
-        </div>
-        <hr>
       </div>
-
-      <div class="text-center" paging page="35" page-size="10" total="1000" paging-action="foo('bar', page)"></div>
-      <!-- <ul class="pager">
-        <li class="next">
-          <a href="#">Older Posts &rarr;</a>
-        </li>
-      </ul> -->
+      <hr>
     </div>
   </div>
+</div>
+<div class="row text-center">
+  <paging class="small" page="currentPage" page-size="pageSize" total="totalCount" paging-action="eventPage(page, pageSize, total)" show-prev-next="true" show-first-last="true"></paging>
+</div>
 </div>

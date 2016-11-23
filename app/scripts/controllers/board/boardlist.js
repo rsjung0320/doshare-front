@@ -8,28 +8,37 @@
  * Controller of the appApp
  */
 angular.module('appApp')
-  .controller('BoardlistCtrl', function ($scope, $http, $location, $cookies, $sce) {
+  .controller('BoardlistCtrl', function($scope, $http, $location, $cookies, $sce) {
     $scope.content = null;
-    $scope.init = function(){
+    $scope.currentPage = 0;
+    $scope.pageSize = 5;
+    $scope.totalCount = 0;
+
+    $scope.init = function() {
+      getBoardList($scope.currentPage);
+    };
+    $scope.init();
+    $scope.findById = function(id) {
+      $location.path('/board/' + id);
+    }
+
+    function getBoardList(page){
       $http({
-          url: API.getBoardAll,
+          url: API.getBoardAll + "?size="+$scope.pageSize+"&page="+page,
           method: "GET"
-          // headers: {"Authorization": $cookies.get('token')}
+            // headers: {"Authorization": $cookies.get('token')}
         })
         .success(function(boards) {
-          console.log('board : ', boards );
-          // console.log('board : ', boards.content );
-          // $scope.boards = boards.content;
-          $scope.content = $sce.trustAsHtml(boards.content);
-          $scope.boards = boards;
+          console.log('board : ', boards);
+          $scope.boards = boards.content;
 
-          // console.log(JSON.parse(boards));
+          $scope.totalCount = boards.totalElements;
         }).error(function(error) {
           console.log("error : ", error);
         });
-    };
-    $scope.init();
-    $scope.findById = function(id){
-      $location.path('/board/' + id);
+    }
+
+    $scope.eventPage = function(page, pageSize, total){
+      getBoardList(page-1);
     }
   });
