@@ -1,7 +1,7 @@
 <div class="container mainpage">
   <div class="row text-center">
     <div class="left-panel">
-      <div class="col-md-4" ng-repeat="board in boards | orderBy:uploadDate:true | limitTo:7">
+      <div class="col-md-4" ng-repeat="board in boards">
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="thumbnail">
@@ -9,7 +9,7 @@
             </div>
             <!-- a태그를 빼면 된다. -->
             <a ng-click="findById(board.idx)">
-              <h3>{{board.title}}</h3>
+              <h3>{{board.title | contentCut:true:17:'...'}}</h3>
             </a>
           </div>
         </div>

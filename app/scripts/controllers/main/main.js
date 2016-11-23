@@ -24,7 +24,7 @@ angular.module('appApp')
       //   });
 
       $http({
-          url: API.getBoardAll,
+          url: API.getBoardAll + "?size=6",
           method: "GET"
           // headers: {"Authorization": $cookies.get('token')}
         })
@@ -32,7 +32,7 @@ angular.module('appApp')
           console.log('board : ', boards );
           // console.log('board : ', boards.content );
           // $scope.boards = boards.content;
-          $scope.boards = boards;
+          $scope.boards = boards.content;
 
           // console.log(JSON.parse(boards));
         }).error(function(error) {

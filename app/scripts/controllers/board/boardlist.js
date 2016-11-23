@@ -11,7 +11,7 @@ angular.module('appApp')
   .controller('BoardlistCtrl', function($scope, $http, $location, $cookies, $sce) {
     $scope.content = null;
     $scope.currentPage = 0;
-    $scope.pageSize = 5;
+    $scope.pageSize = 10;
     $scope.totalCount = 0;
 
     $scope.init = function() {
