@@ -40,7 +40,7 @@ angular.module('appApp')
               if (status === 201) {
                 // 3-1. susscess 시 path를 /로 이동시켜준다.
                 ModalService.showModal({
-                  templateUrl: 'views/global/signupSuceessModal.html',
+                  templateUrl: '/views/global/signupSuceessModal',
                   controller: 'signupSuceessModalController'
                 }).then(function(modal) {
                   modal.element.modal();
@@ -51,7 +51,7 @@ angular.module('appApp')
             }).error(function(data, status, headers, config) {
               if (status === 400) {
                 ModalService.showModal({
-                  templateUrl: 'views/global/signupAlreadyUserModal.html',
+                  templateUrl: '/views/global/signupAlreadyUserModal.html',
                   controller: 'signupAlreadyUserModalController'
                 }).then(function(modal) {
                   modal.element.modal();

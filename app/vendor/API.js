@@ -3,6 +3,7 @@ var API = (function() {
 
   var GET = 'GET';
   var POST = 'POST';
+  var DELETE = 'DELETE';
   // var postRefreshToken = '/login/token/refresh/';
   // var postRegenerateToken = '/login/token/regenerate/';
   // var postSignin = '/login/signin/';
@@ -12,8 +13,8 @@ var API = (function() {
   // var getBoard = '/api/v1/board/';
   // var getBoardAll = '/api/v1/board/all';
   // var getComment = '/api/v1/board/comment/';
-  // var postUploadBoard = '/api/v1/board/upload/board';
-  // var postUploadEditedBoard = '/api/v1/board/upload/edited/board';
+  // var postUploadBoard = '/api/v1/board/upload/board/';
+  // var postUploadEditedBoard = '/api/v1/board/upload/edited/board/';
   // var getDeleteBoard = '/api/v1/board/delete/';
   // var postUploadImage = '/api/v1/board/upload/image/';
   // var getDownloadImage = '/api/v1/board/download/';
@@ -40,6 +41,7 @@ var API = (function() {
   return {
     GET: GET,
     POST: POST,
+    DELETE: DELETE,
     postRefreshToken: postRefreshToken,
     postRegenerateToken: postRegenerateToken,
     postSignin: postSignin,

@@ -78,7 +78,7 @@ var TASK_BOARD = (function() {
   function deleteBoard($location, $http, $cookies, idx) {
     $http({
         url: API.getDeleteBoard + idx,
-        method: API.GET
+        method: API.DELETE
         // ,
         // headers: {'Authorization': $cookies.get('token')},
       })
