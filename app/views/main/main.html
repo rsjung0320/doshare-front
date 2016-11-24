@@ -5,7 +5,9 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="thumbnail">
-              <a ng-click="findById(board.idx)"><img src="https://source.unsplash.com/category/technology/1600x900" alt=""/></a>
+              <!-- <a ng-click="findById(board.idx)"><img src="https://source.unsplash.com/category/technology/1600x900" alt=""/></a> -->
+              <a ng-click="findById(board.idx)"><img ng-src="images/pic{{$index+1}}.jpg" alt=""/></a>
+
             </div>
             <!-- a태그를 빼면 된다. -->
             <a ng-click="findById(board.idx)">

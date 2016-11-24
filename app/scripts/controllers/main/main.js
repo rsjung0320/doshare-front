@@ -44,4 +44,12 @@ angular.module('appApp')
     $scope.findById = function(id){
       $location.path('/board/' + id);
     }
+
+    $scope.getImageSrc = "test";
+    //  = function(idx){
+    //   console.log('idx:', idx);
+    //   var src = "";
+    //
+    //   return src;
+    // }
   });
