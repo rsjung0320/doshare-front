@@ -80,8 +80,8 @@ angular.module('appApp')
           $scope.email = board.email;
           $scope.readCount = board.readCount;
           $scope.uploadDate = board.uploadDate;
-          $scope.tags = board.tags;
-          $scope.comments = board.comments;
+          $scope.tags = board.tag;
+          $scope.comments = board.comment;
 
           setIsAuthor(board.email);
 
