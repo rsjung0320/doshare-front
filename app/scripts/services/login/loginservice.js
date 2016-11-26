@@ -10,7 +10,6 @@
 angular.module('appApp')
   .service('loginService', function () {
     // AngularJS will instantiate a singleton by calling "new" on this function
-    console.log('loginService!!!!');
     var login = function(API, $http, $scope, jwtHelper, $cookies, ModalService, $rootScope, $location){
       $http({
           url: API.postSignin,
